@@ -4,17 +4,37 @@ title: About
 permalink: /about/
 ---
 
-## 关于我
-你好，我是程序员柠檬。
+### Hi there 👋
 
-国内一线互联网大厂计算机软件工程师、[知乎](https://www.zhihu.com/people/ning-meng-cheng-31-94)编程领域万赞答主。
+<!--
+**SSK015/SSK015** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
-[个人技术公众号](https://mp.weixin.qq.com/mp/homepage?__biz=MzkwOTE2OTY1Nw==&hid=1&sn=6395e40d884ce4dd3900a68a0f5a6b87&scene=18#wechat_redirect)分享编程学习路线、编程学习资源，记录技术成长，欢迎扫码添加：
+Here are some ideas to get you started:
 
-![公众号二维码](https://github.com/lemonchann/images/raw/master/gzh/%E6%96%87%E6%9C%AB%E6%8E%A8%E5%B9%BF%E6%96%87%E6%A1%88.png)
+- 🔭 I’m currently working on ...
+- 🌱 I’m currently learning ...
+- 👯 I’m looking to collaborate on ...
+- 🤔 I’m looking for help with ...
+- 💬 Ask me about ...
+- 📫 How to reach me: ...
+- 😄 Pronouns: ...
+- ⚡ Fun fact: ...
+-->
 
+- 🔭 I’m currently pursuing my bachelor's degree in HUST, Wuhan, China. Expected to graduate in 2025.
+- 🌱 I’m currently learning Parallel computing, Disaggregated memory systems and Database systems.
+- 👯 [My static blog here](https://ssk015.github.io/) 
+- 🤔 [My dynamic blog here](https://pochengqiru.cn/)
+- 📫 How to reach me: Email 18252677381@163.com
+- ⚡ Interests: C++ programming, animation, literature.
 
+<div align="center">
+    
+[![Readme Card](https://github-readme-stats.vercel.app/api?username=SSK015&show_icons=true&title_color=ffffff&icon_color=bb2acf&text_color=daf7dc&bg_color=151515)](https://github.com/anuraghazra/github-readme-stats)
+    
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=SSK015&layout=compact&exclude_repo=SSK015.github.io&title_color=ffffff&icon_color=bb2acf&text_color=daf7dc&bg_color=151515)](https://github.com/anuraghazra/github-readme-stats)
+</div>
 
-## 版权声明
-
-博客文章是我原创文章，存档于_posts 文件夹下，版权归我所有，转载请与我联系获得授权许可。
+<div align="center">
+    <img  src="https://github-readme-streak-stats.herokuapp.com/?user=SSK015" />
+</div>

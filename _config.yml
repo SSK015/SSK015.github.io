@@ -65,8 +65,8 @@ disqus: # fromendworld
 gitalk:
   clientID: f8bbfe9f5f62fb2571cc
   clientSecret: 1b228f0d892c769ef035bfcbbf70d38ea2057c6d
-  repo: SSK015.github.io
-  owner: SSK015
+  repo: ssk015.github.io
+  owner: ssk015
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
 #google_analytics: 

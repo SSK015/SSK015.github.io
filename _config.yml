@@ -63,8 +63,8 @@ footer-text: Copyright (c) 2023 LtyinHUST
 disqus: # fromendworld
 # Gitalk
 gitalk:
-  clientID: f8bbfe9f5f62fb2571cc
-  clientSecret: 1b228f0d892c769ef035bfcbbf70d38ea2057c6d
+  clientID: 90e033a41ad752efebd6
+  clientSecret: a3833b47c61bd84ea527d27d46f0853b970677c1
   repo: ssk015.github.io
   owner: ssk015
 

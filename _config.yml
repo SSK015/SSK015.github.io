@@ -17,7 +17,7 @@ avatar: https://oss.tan8.com/yuepuku/164/82224/82224_prev.jpeg
 # 你的favicon（出现在浏览器tab上）图片URL，建议使用较小(64px × 64px)的图片
 favicon: https://github.com/lemonchann/lemonchann.github.io/raw/master/images/favicon.ico
 
-# Tabs in header. There are 'Blog', 'About', 'Archive', 'Tags'
+# Tabs in h eader. There are 'Blog', 'About', 'Archive', 'Tags'
 # and URL Link(e.g. 'Theme' tab below) tabs. If you don't need one, just delete
 # it from the list(Delete '- name: ' and 'url: ', too!)
 navigation:

@@ -16,5 +16,3 @@ author: LtyinHUST
 
 那些不足为惧的艰难险阻，又何必常常挂念心中？夜深人静之时，仿佛世界中唯我独在。只觉得豪情万丈，如同乘风飞翔一般。
 
-
-<img src="https://v1.jinrishici.com/all.svg">

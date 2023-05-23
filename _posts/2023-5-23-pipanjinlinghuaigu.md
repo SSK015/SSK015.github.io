@@ -2,7 +2,7 @@
 layout: post
 title: "批判《金陵怀古四首》其一"
 date:   2023-5-23
-tags: [literature] [thought]
+tags: [thought]
 comments: true
 author: LtyinHUST
 ---

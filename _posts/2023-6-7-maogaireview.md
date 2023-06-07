@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "数字逻辑与计算机设计期末复习-数字逻辑部分"
-date:   2023-6-4
-tags: [digitallogic, lecturereview]
+title: "毛概期末复习"
+date:   2023-6-7
+tags: [sizheng, lecturereview]
 comments: true
 author: LtyinHUST
 ---

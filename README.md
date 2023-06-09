@@ -4,4 +4,4 @@ static blog
 
 update:microsoft可搜索
 
-todo:google可搜索
+google可搜索

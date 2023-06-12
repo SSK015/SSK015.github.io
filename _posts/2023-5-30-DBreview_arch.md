@@ -23,6 +23,7 @@ author: LtyinHUST
 #### 给一个关系代数式子和数据表，要求算结果
 
 #### 给一个需求，要求写关系代数表达式
+- 建立临时关系
 
 ### 范式
 
@@ -50,9 +51,47 @@ author: LtyinHUST
 
 
 ### SQL查询
+创建表：
+
+![sjk04](../images/sjk39.png)
+
+修改表：
+
+只有删除列不需要指定数据类型
+
+删除表：
+
+Drop table  表名[RESTRICT | CASCADE]
 
 #### 写查询语句
+一般格式：
 
+```sql
+	SELECT <ALL/DISTINCT>
+	FROM <SELECT xx> AS <xx>
+	WHERE
+	GROUP BY <HAVING <condition>>
+	ORDER BY <ASC|DESC> <LIMIT N>
+
+```
+![sjk04](../images/sjk40.png)
+
+字符串查询：
+![sjk04](../images/sjk41.png)
+
+all嵌套、any嵌套：嵌套，往往是由于有好几个限制条件？
+
+<>表示不等于
+
+![sjk04](../images/sjk42.png)
+
+![sjk04](../images/sjk43.png)
+
+![sjk04](../images/sjk44.png)
+
+![sjk04](../images/sjk45.png)
+
+![sjk04](../images/sjk46.png)
 #### 写查询优化的方式
 
 
@@ -237,7 +276,10 @@ F：属性间数据依赖关系。
 
 各种集合运算、关系运算：5种基本的运算：**并、差、笛卡尔积、投影、选择**
 
-特别要注意的：自然连接和等值连接
+特别要注意的：自然连接和等值连接，外连接（保留悬浮元组）
+
+**自然连接要去掉重复的！！**
+
 
 除运算：被除的必须有除数的全部相同属性。
 ![sjk06](../images/sjk09.png)
@@ -281,9 +323,14 @@ LIKE 通配符%
 
 ```sql
     CREATE INDEX IND_STU ON STU(SNO);
-
+    CREATE CLUSTER INDEX IND_SC_CLU ON SC(SNO);
+    # 聚簇索引
+    DROP INDEX  索引名
+    # 删除
     # 建立唯一性索引的话，在INDEX前加上UNIquE
 ```
+
+聚簇索引和非聚簇索引的区别：聚簇索引的叶子节点就是数据节点，而非聚簇索引的节点是指向具体数据的指针。
 #### ！！单表查询、多表查询、嵌套查询！！
 
 #### 数据更新、删除等操作

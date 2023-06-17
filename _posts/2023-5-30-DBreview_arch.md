@@ -71,7 +71,8 @@ Drop table  表名[RESTRICT | CASCADE]
 	FROM <SELECT xx> AS <xx>
 	WHERE
 	GROUP BY <HAVING <condition>>
-	ORDER BY <ASC|DESC> <LIMIT N>
+	ORDER BY <ASC|DESC> 
+	LIMIT <N>
 
 ```
 ![sjk04](../images/sjk40.png)
@@ -92,6 +93,19 @@ all嵌套、any嵌套：嵌套，往往是由于有好几个限制条件？
 ![sjk04](../images/sjk45.png)
 
 ![sjk04](../images/sjk46.png)
+
+**注意：**
+- WHERE语句中不能写聚合函数
+- 断言 CREATE ASSERTION <断言名> <CHECK 子句>
+
+
+![sjk04](../images/sjk51.png)
+
+触发器：
+
+![sjk04](../images/sjk52.png)
+
+![sjk04](../images/sjk53.png)
 #### 写查询优化的方式
 
 
@@ -347,11 +361,18 @@ LIKE 通配符%
 
 ##### 存取访问控制
 
+```sql
+	revoke <> on <obj> from <user>
+
+	grant <> on <obj> to <user>
+```
 用户权限定义、用户权限检查
 
 ##### 自主存取控制、强制存取控制
 
-简单来说，就是在访问数据库时，先要通过用户认证确定你有多大的权限，之后才能按照强制存取控制来实现权限控制。
+**强制存取控制：**简单来说，就是在访问数据库时，先要通过用户认证确定你有多大的权限，之后才能按照强制存取控制来实现权限控制。**适合对资料保密分级有明显定义的用户。**
+
+
 ![sjk06](../images/sjk11.png)
 ##### 系统设计原则：
 

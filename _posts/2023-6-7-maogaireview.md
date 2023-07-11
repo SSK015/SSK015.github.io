@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "毛概期末复习"
-date:   2023-7-11
+date:   2023-7-7
 tags: [sizheng, lecturereview]
 comments: true
 author: LtyinHUST

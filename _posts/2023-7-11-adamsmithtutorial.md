@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "亚当斯密哲学经济学思想初探"
-date:   2023-6-7
+date:   2023-7-11
 tags: [thought]
 comments: true
 author: LtyinHUST
@@ -16,4 +16,4 @@ author: LtyinHUST
 - 考虑用双语写作并且发布。
 
 ### The Theory of Moral Sentiments: A Brief View
-- Last modified :7.12.
+- Last modified :7.12

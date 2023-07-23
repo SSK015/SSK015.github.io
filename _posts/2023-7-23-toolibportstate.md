@@ -153,7 +153,7 @@ LinkSpeedActive:.................0x01
 
 如果此时出现网卡一直处于down & polling 状态的情况：
 ```shell
-sudo ibportstate <lid> <port> -C mlx4_0 enable
+sudo ibportstate <lid> <port> -C mlx4_0 -P <port> enable
 ```
 
 再次查看ibstat：

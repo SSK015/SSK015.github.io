@@ -66,12 +66,6 @@ CA 'mlx4_0'
 sudo ibportstate <lid> <port> speed x espeed x width x reset.
 ```
 
-
-再次输入命令：
-```shell
-sudo ibportstate <lid> <port> 即可刷新网卡配置
-```
-
 如：
 ```shell
 ywxia@node24:~/datameasure$ sudo ibportstate 6 1 speed 7 width 1 espeed 30 reset
@@ -121,12 +115,77 @@ MkeyLeasePeriod:.................0
 ProtectBits:.....................0
 ```
 
+
+再次输入命令：
+```shell
+sudo ibportstate <lid> <port> 即可刷新网卡配置
+```
+
+如：
+
+```shell
+ywxia@node24:~/datameasure$ sudo ibportstate 6 1
+CA/RT PortInfo:
+# Port info: Lid 6 port 1
+LinkState:.......................Active
+PhysLinkState:...................LinkUp
+Lid:.............................6
+SMLid:...........................3
+LMC:.............................0
+LinkWidthSupported:..............1X or 4X
+LinkWidthEnabled:................1X
+LinkWidthActive:.................1X
+LinkSpeedSupported:..............2.5 Gbps or 5.0 Gbps or 10.0 Gbps
+LinkSpeedEnabled:................2.5 Gbps or 5.0 Gbps or 10.0 Gbps
+LinkSpeedActive:.................10.0 Gbps
+LinkSpeedExtSupported:...........14.0625 Gbps
+LinkSpeedExtEnabled:.............14.0625 Gbps
+LinkSpeedExtActive:..............No Extended Speed
+Mkey:............................<not displayed>
+MkeyLeasePeriod:.................0
+ProtectBits:.....................0
+# MLNX ext Port info: Lid 6 port 1
+StateChangeEnable:...............0x00
+LinkSpeedSupported:..............0x01
+LinkSpeedEnabled:................0x01
+LinkSpeedActive:.................0x01
+```
+
 如果此时出现网卡一直处于down & polling 状态的情况：
 ```shell
-
+sudo ibportstate <lid> <port> -C mlx4_0 enable
 ```
 
 再次查看ibstat：
+```shell
+ywxia@node24:~/datameasure$ ibstat
+CA 'mlx4_0'
+        CA type: MT4099
+        Number of ports: 2
+        Firmware version: 2.42.5000
+        Hardware version: 1
+        Node GUID: 
+        System image GUID: 
+        Port 1:
+                State: Active
+                Physical state: LinkUp
+                Rate: 10 (FDR10)
+                Base lid: 6
+                LMC: 0
+                SM lid: 3
+                Capability mask: 
+                Port GUID: 
+                Link layer: InfiniBand
+        Port 2:
+                State: Down
+                Physical state: Polling
+                Rate: 10
+                Base lid: 0
+                LMC: 0
+                SM lid: 0
+                Capability mask: 
+                Port GUID: 
+                Link layer: InfiniBand
+```
 
-
-配置成功！
+速度修改成功！

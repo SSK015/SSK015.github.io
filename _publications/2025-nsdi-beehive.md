@@ -1,5 +1,5 @@
 ---
-title: "A Scalable Disaggregated Memory Runtime Exploiting Asynchrony of Multithreaded Programs"
+title: "Beehive: A Scalable Disaggregated Memory Runtime Exploiting Asynchrony of Multithreaded Programs"
 collection: publications
 category: conferences
 permalink: /publication/tobeadd

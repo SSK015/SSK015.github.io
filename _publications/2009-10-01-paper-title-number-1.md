@@ -3,7 +3,7 @@ title: "A Scalable Disaggregated Memory Runtime Exploiting Asynchrony of Multith
 collection: publications
 category: conferences
 permalink: /publication/tobeadd
-excerpt: 'xxx'
+excerpt: 'Quanxi Li, Hong Huang, Ying Liu, **_Yanwen Xia_**, Jie Zhang, Mosong Zhou, Xiaobing Feng, Huimin Cui, Quan Chen, Yizhou Shan, Chenxi Wang*'
 date: 2025-04-28
 venue: 'NSDI25'
 slidesurl: 'http://academicpages.github.io/files/slides3.pdf'

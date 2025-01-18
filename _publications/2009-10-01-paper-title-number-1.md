@@ -6,6 +6,4 @@ permalink: /publication/tobeadd
 excerpt: 'Quanxi Li, Hong Huang, Ying Liu, **_Yanwen Xia_**, Jie Zhang, Mosong Zhou, Xiaobing Feng, Huimin Cui, Quan Chen, Yizhou Shan, Chenxi Wang*'
 date: 2025-04-28
 venue: 'NSDI25'
-slidesurl: 'http://academicpages.github.io/files/slides3.pdf'
-paperurl: 'http://academicpages.github.io/files/paper3.pdf'
 ---

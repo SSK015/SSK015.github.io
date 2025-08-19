@@ -9,7 +9,7 @@ redirect_from:
 
 Hello there! 
 ======
-My name is *Yanwen Xia（夏彦文）*. My first name "Yanwen" means "outstanding" and "cultured" in Chinese, and my last name "Xia" means "summer". The pronouciation of my name in Chinese is similar to "yenwen share" in English.
+My name is *Yanwen Xia（夏彦文）*. My first name "Yanwen" means "outstanding" and "educated" in Chinese, and my last name "Xia" means "summer". The pronouciation of my name in Chinese is similar to "yenwen share" in English.
 
 
 Brief Introduction to myself

@@ -36,6 +36,12 @@ Research experience
   * Sub-skill 2.3
 * Skill 3 -->
 
+Other Experience (Contests and Projects)
+======
+* First prize, ASC Student Supercomuter Challenge 24 World Final, a famous HPC game (2024). Optimizing OpenCAE and Gomars, two fluid Mechanics software, improve their performance by up to 4 $times$.
+* Sencond prize, Computer System Competition‑OS Kernel Track (2024). Implemented a kernel from scratch and deployed it on RISCV platform.
+* A member of [HUST Heptagon SCC Team](https://github.com/heptagonhust) (2022-2025). Participating in a series of competitions including CPC23, ASC24, ASC25 and etc.
+
 Publications
 ======
   <ul>{% for post in site.publications reversed %}

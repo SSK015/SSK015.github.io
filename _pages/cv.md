@@ -9,6 +9,8 @@ redirect_from:
 
 {% include base_path %}
 
+Born in January 2004, 21 years old.
+
 Education
 ======
 * B.E. in Computer Science, Huazhong University of Science and Technology, 2021.9-2025.6

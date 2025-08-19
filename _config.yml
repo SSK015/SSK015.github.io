@@ -21,7 +21,7 @@ repository               : "ssk015/ssk015.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.jpg"
+  avatar           : "profile1.jpg"
   name             : "Yanwen Xia"
   # pronouns         : # example: "she/her"  
   bio              : "PhD student in Computer System"
@@ -32,7 +32,7 @@ author:
 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : ""
+  googlescholar    : "https://scholar.google.com/citations?hl=zh-CN&view_op=list_works&gmla=AH8HC4ywKHtgq65ZlPBXNE8VQgn3qsj1QbXBfmagE3efEgQZpVcRU0_ofMpKGq67WyGjf4thnUnTfxrzvkvgX-EuVcs&user=3rEuZFwAAAAJ"
   impactstory      : # URL
   orcid            : "http://orcid.org/yourorcidurl"
   semantic         : # URL

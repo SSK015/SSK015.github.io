@@ -14,10 +14,13 @@ My name is *Yanwen Xia（夏彦文）*. My first name "Yanwen" means "outstandin
 
 Brief Introduction to myself
 ======
-I am currently a senior undergraduate student at Huazhong University of Science and Technology (HUST), majoring in Computer Science and Technology. I will be a Phd student at Institute of Computing Technology (ICT), Chinese Academy of Sciences (CAS) in Sep 2025. I am lucky to be advised by [Prof. Chenxi Wang](https://scholar.google.com/citations?hl=zh-CN&user=ESj_-bEAAAAJ). My research interests are in the area of computer systems, especially in the design and implementation of distributed and network systems.
+I got my bachelor degree in 2025 from the computer science School of Huazhong University of Science and Technology. I will be a Phd student at Institute of Computing Technology (ICT), Chinese Academy of Sciences (CAS) in Sep 2025. I am lucky to be advised by [Prof. Chenxi Wang](https://scholar.google.com/citations?hl=zh-CN&user=ESj_-bEAAAAJ). My research interests are in the area of computer systems, especially in the design and implementation of distributed and network systems.
 
 Research Interests
 ======
+- *Fault Tolerant Systems*.
+Fault tolerance is crucical to systems deployed in real production enviroments. My research focus on building fault tolerant memory systems across physical machines.
+
 - Solving *Computer System* problems with **Programming Languages** oriented approach.
 
 Solve Computer System problems with Programming Languages oriented approach is a promising direction. Solutions include provide new programming abstracts, new programming models, new programming languages, etc. A famous example is *Spark* for big data processing. Recent works like *DRust*, *Midas*, *Nu*, *AIFM* and *Beehive* are also trying to solve some computer system problems with Programming Languages oriented approach.

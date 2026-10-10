@@ -1,0 +1,77 @@
+<section class="hero section-wrap" id="about" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> COMPUTER SYSTEMS / PHD STUDENT</p>
+    <h1 id="hero-title">Yanwen<br>Xia<span class="title-dot">.</span></h1>
+    <p class="chinese-name" lang="zh">夏彦文 <span aria-hidden="true">/</span> <span lang="en">Beijing, China</span></p>
+    <p class="hero-tagline">{{ site.data.terminal.tagline | escape }}</p>
+    <p class="hero-intro">{{ site.data.terminal.intro | escape }}</p>
+    <p class="hero-affiliation">PhD student at <abbr title="Institute of Computing Technology, Chinese Academy of Sciences">ICT, CAS</abbr> &amp; <abbr title="University of Chinese Academy of Sciences">UCAS</abbr>.<br>Advised by <a href="{{ site.data.terminal.advisor_url }}" target="_blank" rel="noopener noreferrer">{{ site.data.terminal.advisor | escape }} ↗</a>.</p>
+    <div class="hero-actions">
+      <a class="button primary" href="#publications">Read my work <span aria-hidden="true">↓</span></a>
+      <a class="button secondary" href="{{ '/cv/' | relative_url }}">View CV <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="social-links">
+      <a href="{{ site.data.terminal.github_url }}" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      <a href="{{ site.data.terminal.scholar_url }}" target="_blank" rel="noopener noreferrer">Scholar ↗</a>
+      <a href="mailto:{{ site.data.terminal.email }}">Email ↗</a>
+    </div>
+  </div>
+  <div class="hero-side">
+    <div class="terminal-window" aria-label="Interactive profile terminal">
+      <div class="terminal-titlebar"><div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div><span>yanwen@research: ~</span><span class="terminal-title-mark" aria-hidden="true">⌁</span></div>
+      <div class="terminal-body">
+        <div class="terminal-line"><span class="terminal-prompt">$</span> whoami</div>
+        <div class="terminal-profile"><img src="{{ '/images/profile1.jpg' | relative_url }}" width="52" height="52" alt="Yanwen Xia hiking"><div><strong>Yanwen Xia <span lang="zh">/ 夏彦文</span></strong><span>Computer systems researcher</span></div></div>
+        <div class="terminal-line"><span class="terminal-prompt">$</span> cat interests.txt</div>
+        <p class="terminal-output">far memory &nbsp;·&nbsp; fault tolerance<br>runtimes &nbsp;·&nbsp; distributed systems</p>
+        <div class="terminal-line"><span class="terminal-prompt">$</span> ls publications/</div>
+        <div class="terminal-files">
+          <a href="{{ '/atc26starfish' | relative_url }}"><span>starfish</span><span>ATC '26</span></a>
+          <a href="{{ '/eurosys27moleculegc' | relative_url }}"><span>moleculegc</span><span>EuroSys '27</span></a>
+          <a href="{{ '/sosp25orthrus' | relative_url }}"><span>orthrus</span><span>SOSP '25</span></a>
+          <a href="{{ '/nsdi25beehive' | relative_url }}"><span>beehive</span><span>NSDI '25</span></a>
+        </div>
+        <div class="terminal-history" id="terminal-history" role="log" aria-live="polite" aria-label="Command output"></div>
+        <form class="terminal-input-line enhanced-only" id="terminal-form">
+          <label for="terminal-input" class="terminal-prompt" aria-label="Command">$</label>
+          <input id="terminal-input" name="command" type="text" placeholder="type help ↵" aria-label="Terminal command; type help for available commands" autocomplete="off" spellcheck="false" maxlength="120">
+          <button type="submit" class="terminal-submit" aria-label="Run command">↵</button>
+        </form>
+      </div>
+      <div class="terminal-status"><span><span class="status-dot" aria-hidden="true"></span> profile.session</span><span>UTF-8 / en + zh</span></div>
+    </div>
+    <p class="terminal-caption"><span aria-hidden="true">└─</span> A small terminal. Try <code>help</code>, <code>papers</code>, or <code>cv</code>.</p>
+  </div>
+</section>
+<div class="section-rule section-wrap"><span>MEMORY / RUNTIME / RELIABILITY</span><span aria-hidden="true">[ scroll to explore ↓ ]</span></div>
+<section class="section-wrap content-section" id="research" aria-labelledby="research-title">
+  <div class="section-heading"><div><p class="eyebrow">01 / RESEARCH</p><h2 id="research-title">Under the abstraction<span class="title-dot">.</span></h2></div><p class="section-note">Memory, execution,<br>and what happens when things fail.</p></div>
+  <div class="research-grid">
+    {% for area in site.data.terminal.research %}
+    <article class="research-item">
+      <div class="research-item-top"><span>{{ area.index }}</span><span>{{ area.label | escape }}</span><span aria-hidden="true">+</span></div>
+      <h3>{{ area.name | escape }}</h3>
+      <p>{{ area.description | escape }}</p>
+      <p class="research-keywords">{{ area.keywords | escape }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+<section class="section-wrap content-section" id="publications" aria-labelledby="publications-title">
+  <div class="section-heading"><div><p class="eyebrow">02 / PUBLICATIONS</p><h2 id="publications-title">Selected work<span class="title-dot">.</span></h2></div><a class="text-link" href="{{ '/publications/' | relative_url }}">All publications ↗</a></div>
+  <div class="publication-list">
+    {% assign featured_papers = site.publications | where: 'featured', true %}
+    {% for paper in featured_papers %}{% include terminal-paper.html paper=paper %}{% endfor %}
+    {% for paper in site.publications reversed %}
+      {% unless paper.featured %}{% include terminal-paper.html paper=paper %}{% endunless %}
+    {% endfor %}
+  </div>
+</section>
+<section class="section-wrap content-section personal-section" aria-labelledby="personal-title">
+  <div class="personal-copy"><p class="eyebrow">03 / AWAY FROM THE KEYBOARD</p><h2 id="personal-title">Still curious<span class="title-dot">.</span></h2><p>I like exploring systems beyond the screen, too.</p></div>
+  <ul class="hobby-tags">{% for hobby in site.data.terminal.hobbies %}<li>{{ hobby | escape }}</li>{% endfor %}</ul>
+</section>
+<section class="section-wrap contact-section" id="contact" aria-labelledby="contact-title">
+  <div><p class="eyebrow">04 / CONTACT</p><h2 id="contact-title">Let's talk systems<span class="title-dot">.</span></h2><p>Ideas, research, or something interesting you've been building.</p></div>
+  <div class="contact-details"><a class="email-link" href="mailto:{{ site.data.terminal.email }}">{{ site.data.terminal.email }} <span aria-hidden="true">↗</span></a><details><summary>Other ways to reach me</summary><p>Qzone: 2437103317<br>WeChat: 18252677381</p></details></div>
+</section>

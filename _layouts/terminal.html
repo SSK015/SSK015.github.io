@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>{% unless page.home %}{{ page.title | escape }} · {% endunless %}Yanwen Xia</title>
+  <meta name="description" content="{{ site.description | escape }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+  <meta property="og:description" content="{{ site.description | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{{ '/images/profile1.jpg' | absolute_url }}">
+  <meta name="theme-color" content="#0b1014">
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/terminal-mark.svg' | relative_url }}">
+  <script>
+    try {
+      if (localStorage.getItem('yanwen-theme') === 'light') document.documentElement.dataset.theme = 'light';
+    } catch (_) {}
+  </script>
+  <link rel="stylesheet" href="{{ '/assets/css/terminal.css' | relative_url }}">
+  <script src="{{ '/assets/js/terminal.js' | relative_url }}" defer></script>
+</head>
+<body data-home="{{ page.home | default: false }}" data-baseurl="{{ site.baseurl }}">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="{{ '/' | relative_url }}" aria-label="Yanwen Xia home"><span class="prompt-mark">~/</span>yanwen<span class="wordmark-cursor" aria-hidden="true">_</span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="{{ '/#about' | relative_url }}"{% if page.home %} class="active" aria-current="page"{% endif %}><span>01</span> about</a>
+        <a href="{{ '/#research' | relative_url }}"><span>02</span> research</a>
+        <a href="{{ '/publications/' | relative_url }}"{% if page.permalink == '/publications/' %} class="active" aria-current="page"{% endif %}><span>03</span> papers</a>
+        <a href="{{ '/cv/' | relative_url }}"{% if page.permalink == '/cv/' %} class="active" aria-current="page"{% endif %}><span>04</span> cv</a>
+      </nav>
+      <div class="header-tools">
+        <button class="command-toggle enhanced-only" type="button" data-open-command aria-label="Open command menu" aria-haspopup="dialog"><span class="command-symbol" aria-hidden="true">&gt;_</span><kbd data-shortcut>Ctrl K</kbd></button>
+        <button class="theme-toggle enhanced-only" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch theme"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg></button>
+      </div>
+    </div>
+  </header>
+  <main id="main" class="site-main" tabindex="-1">
+    {% if page.home %}
+      {{ content }}
+    {% else %}
+      <div class="document-shell">
+        <a class="back-link" href="{{ '/' | relative_url }}"><span aria-hidden="true">←</span> back to ~/yanwen</a>
+        {% if page.collection == 'publications' %}
+          <p class="eyebrow">PAPER / {{ page.venue_short | default: page.venue | escape }}</p>
+          <h1 class="document-title">{{ page.title | escape }}</h1>
+          <div class="document-authors">{{ page.excerpt | markdownify }}</div>
+          <p class="document-meta">{{ page.venue | escape }}</p>
+          <div class="document-actions">
+            {% if page.paperurl %}<a class="button primary" href="{{ page.paperurl }}" target="_blank" rel="noopener noreferrer">Read paper ↗</a>{% endif %}
+            {% if page.slidesurl %}<a class="button secondary" href="{{ page.slidesurl }}" target="_blank" rel="noopener noreferrer">Slides ↗</a>{% endif %}
+            {% if page.link %}<a class="button secondary" href="{{ page.link }}" target="_blank" rel="noopener noreferrer">Project information ↗</a>{% endif %}
+          </div>
+        {% else %}
+          <p class="eyebrow">~/{{ page.terminal_path | default: page.title | downcase | escape }}</p>
+          <h1 class="document-title">{{ page.title | escape }}<span class="title-dot">.</span></h1>
+          {% if page.subtitle %}<p class="document-subtitle">{{ page.subtitle | escape }}</p>{% endif %}
+        {% endif %}
+        <div class="prose">{{ content }}</div>
+      </div>
+    {% endif %}
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span><span class="prompt-mark">~/</span> Yanwen Xia <span class="footer-separator">·</span> {{ site.time | date: '%Y' }}</span>
+      <span class="footer-build">Built with Jekyll <span class="footer-separator">/</span> <a href="https://github.com/SSK015/SSK015.github.io" target="_blank" rel="noopener noreferrer">view source ↗</a></span>
+      <a class="back-top" href="#main">back to top ↑</a>
+    </div>
+  </footer>
+  <dialog class="command-dialog" id="command-dialog" aria-labelledby="command-title">
+    <div class="command-dialog-heading">
+      <h2 id="command-title"><span class="prompt-mark">&gt;_</span> Go somewhere</h2>
+      <button type="button" class="dialog-close" data-close-command aria-label="Close command menu"><kbd>Esc</kbd></button>
+    </div>
+    <label class="sr-only" for="command-search">Find a page or action</label>
+    <input id="command-search" type="search" placeholder="Type a page or command…" autocomplete="off" spellcheck="false">
+    <div class="command-options" id="command-options">
+      <a href="{{ '/#about' | relative_url }}" data-command-item data-search="about home whoami"><span>01</span> About me <small>whoami</small></a>
+      <a href="{{ '/#research' | relative_url }}" data-command-item data-search="research interests"><span>02</span> Research <small>research</small></a>
+      <a href="{{ '/publications/' | relative_url }}" data-command-item data-search="papers publications starfish moleculegc orthrus beehive"><span>03</span> Publications <small>papers</small></a>
+      <a href="{{ '/cv/' | relative_url }}" data-command-item data-search="cv resume education experience"><span>04</span> Curriculum vitae <small>cv</small></a>
+      <a href="{{ site.data.terminal.github_url }}" target="_blank" rel="noopener noreferrer" data-command-item data-search="github code repositories"><span>↗</span> GitHub <small>github</small></a>
+      <a href="{{ site.data.terminal.scholar_url }}" target="_blank" rel="noopener noreferrer" data-command-item data-search="scholar publications citations"><span>↗</span> Google Scholar <small>scholar</small></a>
+      <a href="mailto:{{ site.data.terminal.email }}" data-command-item data-search="contact email mail"><span>@</span> Send an email <small>contact</small></a>
+      <button type="button" data-command-item data-search="theme dark light appearance" data-palette-theme><span>◐</span> Toggle appearance <small>theme</small></button>
+    </div>
+    <p class="command-empty" id="command-empty" hidden>No matching commands. Try “papers” or “cv”.</p>
+    <p class="sr-only" id="command-announcement" role="status" aria-live="polite" aria-atomic="true"></p>
+    <div class="command-dialog-footer"><span><kbd>↑</kbd> <kbd>↓</kbd> navigate</span><span><kbd>Enter</kbd> open</span></div>
+  </dialog>
+</body>
+</html>

@@ -1,6 +1,9 @@
 ---
 title: "Orthrus: Efficient and Timely Detection of Silent User Data Corruption in the Cloud with Resource-Adaptive Computation Validation"
 collection: publications
+layout: terminal
+venue_short: SOSP
+display_year: "2025"
 category: conferences
 paperurl: 'https://dl.acm.org/doi/10.1145/3731569.3764832'
 permalink: sosp25orthrus

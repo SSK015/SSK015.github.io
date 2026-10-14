@@ -4,6 +4,7 @@ collection: publications
 layout: terminal
 venue_short: SOSP
 display_year: "2025"
+authorship_role: collaborator
 category: conferences
 paperurl: 'https://dl.acm.org/doi/10.1145/3731569.3764832'
 pdf_local: '/files/papers/orthrus-sosp-2025.pdf'

@@ -1,11 +1,21 @@
 ---
 layout: terminal
-title: "Research archive"
+title: "Full publication list"
 permalink: /publications/
 author_profile: false
 terminal_path: publications
 subtitle: "Papers, collaborators, and the materials behind the work."
 ---
+
+{% assign summary_roles = 'first-author,collaborator' | split: ',' %}
+{% assign summary_venues = 'SOSP,NSDI,ATC,EuroSys' | split: ',' %}
+<dl class="publication-summary" aria-label="Publication counts by authorship">
+{% for role in summary_roles %}
+  {% assign role_papers = site.publications | where: 'authorship_role', role %}
+  <dt>{% if role == 'first-author' %}First-author{% else %}Collaborator{% endif %}:</dt>
+  <dd>{% assign summary_separator = '' %}{% for venue in summary_venues %}{% assign venue_papers = role_papers | where: 'venue_short', venue %}{% if venue_papers.size > 0 %}{{ summary_separator }}<span>{{ venue | escape }} ×{{ venue_papers.size }}</span>{% assign summary_separator = ', ' %}{% endif %}{% endfor %}</dd>
+{% endfor %}
+</dl>
 
 <p class="publication-note">These are collaborations; each paper credits the full team. Public code and evaluation materials are linked where available. Also on <a href="{{ site.data.terminal.scholar_url }}" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a>.</p>
 <div class="publication-list">

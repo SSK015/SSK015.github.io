@@ -227,6 +227,10 @@ kbd { font-family: var(--mono); font-size: 10px; color: var(--muted); font-weigh
 .prose .artifact-badges ul { padding: 0; margin: 5px 0 0; }
 .prose .artifact-badges li { font-size: 9px; line-height: 1.7; padding: 2px 6px; margin: 0; }
 .publication-note { margin-bottom: 28px !important; font-size: 12px; }
+.publication-summary { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 10px 24px; margin: 0 0 26px; padding: 20px 22px; border: 1px solid var(--line); background: var(--surface); font-size: 13px; line-height: 1.8; }
+.publication-summary dt { color: var(--ink); font-weight: 500; }
+.publication-summary dd { margin: 0; color: var(--muted); }
+.publication-summary dd span { white-space: nowrap; }
 .cv-contact { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; padding-block: 17px; border-block: 1px solid var(--line); font-size: 11px; }
 .cv-contact span { color: var(--quiet); }
 .print-cv { padding: 4px 0; background: none; border: none; color: var(--muted); font-size: 10px; margin-left: auto; }
@@ -311,6 +315,7 @@ kbd { font-family: var(--mono); font-size: 10px; color: var(--muted); font-weigh
   .cv-contact { gap: 9px 20px; }
   .print-cv { margin-left: 0; }
   .prose { font-size: 12px; }
+  .publication-summary { padding: 17px 16px; gap: 8px 16px; font-size: 12px; }
   .command-dialog { top: 8vh; }
 }
 @media (max-width: 420px) {

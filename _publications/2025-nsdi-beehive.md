@@ -4,6 +4,7 @@ collection: publications
 layout: terminal
 venue_short: NSDI
 display_year: "2025"
+authorship_role: collaborator
 category: conferences
 paperurl: 'https://www.usenix.org/system/files/nsdi25-li-quanxi.pdf'
 pdf_local: '/files/papers/beehive-nsdi-2025.pdf'

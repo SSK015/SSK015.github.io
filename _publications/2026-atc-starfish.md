@@ -5,6 +5,7 @@ layout: terminal
 venue_short: ATC
 display_year: "2026"
 publication_status: Accepted
+authorship_role: first-author
 featured: true
 category: conferences
 permalink: atc26starfish

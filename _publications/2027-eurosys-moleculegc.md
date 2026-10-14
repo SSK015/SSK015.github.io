@@ -5,6 +5,7 @@ layout: terminal
 venue_short: EuroSys
 display_year: "2027"
 publication_status: Accepted
+authorship_role: collaborator
 category: conferences
 link: 'https://wangchenxi7.github.io/home/'
 permalink: eurosys27moleculegc

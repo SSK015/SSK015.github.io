@@ -50,6 +50,7 @@
           <h1 class="document-title">{{ page.title | escape }}</h1>
           <div class="document-authors">{{ page.excerpt | markdownify }}</div>
           <p class="document-meta">{{ page.venue | escape }}</p>
+          {% include terminal-artifact-badges.html paper=page %}
           {% if work_entry %}
           <div class="project-notes">
             <p>{{ work_entry.summary | escape }}</p>
@@ -60,10 +61,12 @@
           <div class="document-actions">
             {% if work_entry.source_url %}<a class="button primary" href="{{ work_entry.source_url }}" target="_blank" rel="noopener noreferrer">{{ work_entry.source_label | default: 'Source code' | escape }} ↗</a>{% endif %}
             {% if work_entry.evaluation_url %}<a class="button secondary" href="{{ work_entry.evaluation_url }}" target="_blank" rel="noopener noreferrer">{{ work_entry.evaluation_label | default: 'Evaluation' | escape }} ↗</a>{% endif %}
-            {% if page.paperurl %}<a class="button secondary" href="{{ page.paperurl }}" target="_blank" rel="noopener noreferrer">Read paper ↗</a>{% endif %}
+            {% if page.pdf_local %}<a class="button secondary" href="{{ page.pdf_local | relative_url }}" type="application/pdf" target="_blank" rel="noopener noreferrer">Read PDF ↗</a>{% endif %}
+            {% if page.paperurl %}<a class="button secondary" href="{{ page.paperurl }}" target="_blank" rel="noopener noreferrer">{% if page.pdf_local %}Publisher{% else %}Read paper{% endif %} ↗</a>{% endif %}
             {% if page.slidesurl %}<a class="button secondary" href="{{ page.slidesurl }}" target="_blank" rel="noopener noreferrer">Slides ↗</a>{% endif %}
             {% if page.link %}<a class="button secondary" href="{{ page.link }}" target="_blank" rel="noopener noreferrer">{% if page.link == site.data.terminal.advisor_url %}Related homepage{% else %}Project information{% endif %} ↗</a>{% endif %}
           </div>
+          {% if page.pdf_local %}<p class="pdf-provenance">Unmodified public PDF · <a href="{{ page.pdf_source_url }}" target="_blank" rel="noopener noreferrer">{{ page.pdf_source_name | escape }} ↗</a>{% if page.pdf_license %} · {{ page.pdf_license | escape }}{% endif %}</p>{% endif %}
         {% else %}
           <p class="eyebrow">~/{{ page.terminal_path | default: page.title | downcase | escape }}</p>
           <h1 class="document-title">{{ page.title | escape }}<span class="title-dot">.</span></h1>

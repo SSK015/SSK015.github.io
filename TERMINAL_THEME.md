@@ -33,6 +33,19 @@ instructions being public is not a claim that every result has been reproduced.
 Do not copy private contact details, lab addresses, or access instructions from
 CVs or evaluation material onto the homepage.
 
+## Public PDFs and artifact badges
+
+`pdf_local` in a publication record enables the site's direct PDF link. Keep the
+public download URL (`pdf_source_url`), source name, page count, download check
+date, and SHA-256 alongside it. Preserve the publisher link and the unchanged
+public PDF, including its attribution/license notices. Mirror provenance is
+documented in `files/papers/README.md`.
+
+`artifact_badges` is an explicit list of awarded badges; it requires an
+`artifact_badges_source` pointing to the official award record. A public repo or
+an artifact appendix alone does not establish an award. The reusable badge strip
+appears in project cards, the research archive, the web CV, and paper details.
+
 ## Local preview
 
 ```sh

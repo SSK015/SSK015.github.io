@@ -6,6 +6,18 @@ venue_short: SOSP
 display_year: "2025"
 category: conferences
 paperurl: 'https://dl.acm.org/doi/10.1145/3731569.3764832'
+pdf_local: '/files/papers/orthrus-sosp-2025.pdf'
+pdf_source_url: 'https://web.cs.ucla.edu/~harryxu/papers/orthrus-sosp25.pdf'
+pdf_source_name: 'UCLA author copy'
+pdf_license: 'CC BY 4.0'
+pdf_pages: 19
+pdf_sha256: 'da5c5b415370f970977cfd5da45622772de50f1bae0c4eb71e6d075c19c1faa0'
+pdf_checked: '2026-10-14'
+artifact_badges:
+  - 'Artifacts Available'
+  - 'Artifacts Evaluated - Functional'
+  - 'Results Reproduced'
+artifact_badges_source: 'https://sysartifacts.github.io/sosp2025/results'
 permalink: sosp25orthrus
 excerpt: 'Chenxiao Liu, Zhenting Zhu(co-first), Quanxi Li, **_Yanwen Xia_**, Yifan Qiao, Xiangyun Deng, Youyou Lu, Tao Xie, Huimin Cui, Zidong Du, Harry Xu, Chenxi Wang*'
 date: 2025-10-16

@@ -5,11 +5,13 @@
   <div class="paper-content">
     <h3><a href="{{ paper.url | relative_url }}">{{ paper.title | escape }}</a></h3>
     <div class="paper-authors">{{ paper.excerpt | markdownify }}</div>
+    {% include terminal-artifact-badges.html paper=paper %}
     <div class="paper-links">
       {% if work_entry.source_url %}<a href="{{ work_entry.source_url }}" target="_blank" rel="noopener noreferrer">{{ work_entry.source_label | default: 'Source code' | escape }} ↗</a>{% endif %}
       {% if work_entry.evaluation_url %}<a href="{{ work_entry.evaluation_url }}" target="_blank" rel="noopener noreferrer">{{ work_entry.evaluation_label | default: 'Evaluation' | escape }} ↗</a>{% endif %}
+      {% if paper.pdf_local %}<a href="{{ paper.pdf_local | relative_url }}" type="application/pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a>{% endif %}
       <a href="{{ paper.url | relative_url }}">Details ↗</a>
-      {% if paper.paperurl %}<a href="{{ paper.paperurl }}" target="_blank" rel="noopener noreferrer">Paper ↗</a>{% endif %}
+      {% if paper.paperurl %}<a href="{{ paper.paperurl }}" target="_blank" rel="noopener noreferrer">{% if paper.pdf_local %}Publisher{% else %}Paper{% endif %} ↗</a>{% endif %}
       {% if paper.slidesurl %}<a href="{{ paper.slidesurl }}" target="_blank" rel="noopener noreferrer">Slides ↗</a>{% endif %}
       {% if paper.link %}<a href="{{ paper.link }}" target="_blank" rel="noopener noreferrer">{% if paper.link == site.data.terminal.advisor_url %}Related homepage{% else %}Project info{% endif %} ↗</a>{% endif %}
     </div>

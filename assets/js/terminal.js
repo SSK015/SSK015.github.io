@@ -113,8 +113,9 @@
     history.scrollTop = history.scrollHeight;
   }
   const routes = {
-    about: '/#about', research: '/#research', papers: '/publications/',
-    publications: '/publications/', cv: '/cv/', contact: '/#contact', email: '/#contact'
+    about: '/#about', approach: '/#approach', work: '/#work', personal: '/#personal',
+    research: '/publications/', papers: '/publications/', publications: '/publications/',
+    cv: '/cv/', contact: '/#contact', email: '/#contact'
   };
   if (form) form.addEventListener('submit', event => {
     event.preventDefault();
@@ -127,13 +128,15 @@
     historyIndex = typedCommands.length;
     if (key === 'clear') { history.replaceChildren(); return; }
     if (key === 'help') {
-      printResult(command, 'about · research · papers · cv · contact\nwhoami · ls · cat interests.txt\ngithub · scholar · theme · clear\nCtrl / ⌘ K opens the command menu.');
+      printResult(command, 'about · approach · work · personal · contact\nwhoami · ls · cat approach.txt · cat interests.txt\npapers · cv · github · scholar · theme · clear\nCtrl / ⌘ K opens the command menu.');
     } else if (key === 'whoami') {
-      printResult(command, 'Yanwen Xia / 夏彦文\nPhD student in Computer Systems\nICT, CAS & UCAS · Beijing, China');
+      printResult(command, 'Yanwen Xia / 夏彦文\nSystems, tools, and curious exploration\nPhD student · ICT, CAS & UCAS · Beijing, China');
     } else if (key === 'ls') {
-      printResult(command, 'about/  research/  papers/  cv/  contact/\nEnter a name to open it.');
+      printResult(command, 'about/  approach/  work/  personal/  contact/\nResearch archive: papers · Background: cv\nEnter a name to open it.');
+    } else if (key === 'cat approach.txt' || key === 'cat principles.txt') {
+      printResult(command, 'Build solid systems. Share usable work.\nMake results checkable. Credit collaborators.\nOpen whenever possible; clear about limits.');
     } else if (key === 'cat interests.txt') {
-      printResult(command, 'Far memory · Fault tolerance\nRuntimes & programming models\nDistributed systems & scheduling');
+      printResult(command, 'Systems & tools · AI agents\nFar memory · Fault tolerance · Runtimes\nRTS games · Hiking · J-pop / Punk · VOCALOID\nCrime films · Action anime');
     } else if (key === 'theme') {
       toggleTheme();
       printResult(command, 'Theme: ' + root.dataset.theme);

@@ -11,7 +11,6 @@
   <meta property="og:title" content="{{ page.title | default: site.title | escape }}">
   <meta property="og:description" content="{{ site.description | escape }}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
-  <meta property="og:image" content="{{ '/images/profile1.jpg' | absolute_url }}">
   <meta name="theme-color" content="#0b1014">
   <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/terminal-mark.svg' | relative_url }}">
   <script>
@@ -29,9 +28,9 @@
       <a class="wordmark" href="{{ '/' | relative_url }}" aria-label="Yanwen Xia home"><span class="prompt-mark">~/</span>yanwen<span class="wordmark-cursor" aria-hidden="true">_</span></a>
       <nav class="main-nav" aria-label="Main navigation">
         <a href="{{ '/#about' | relative_url }}"{% if page.home %} class="active" aria-current="page"{% endif %}><span>01</span> about</a>
-        <a href="{{ '/#research' | relative_url }}"><span>02</span> research</a>
-        <a href="{{ '/publications/' | relative_url }}"{% if page.permalink == '/publications/' %} class="active" aria-current="page"{% endif %}><span>03</span> papers</a>
-        <a href="{{ '/cv/' | relative_url }}"{% if page.permalink == '/cv/' %} class="active" aria-current="page"{% endif %}><span>04</span> cv</a>
+        <a href="{{ '/#approach' | relative_url }}"><span>02</span> approach</a>
+        <a href="{{ '/#work' | relative_url }}"><span>03</span> work</a>
+        <a href="{{ '/#contact' | relative_url }}"><span>04</span> contact</a>
       </nav>
       <div class="header-tools">
         <button class="command-toggle enhanced-only" type="button" data-open-command aria-label="Open command menu" aria-haspopup="dialog"><span class="command-symbol" aria-hidden="true">&gt;_</span><kbd data-shortcut>Ctrl K</kbd></button>
@@ -46,14 +45,24 @@
       <div class="document-shell">
         <a class="back-link" href="{{ '/' | relative_url }}"><span aria-hidden="true">←</span> back to ~/yanwen</a>
         {% if page.collection == 'publications' %}
-          <p class="eyebrow">PAPER / {{ page.venue_short | default: page.venue | escape }}</p>
+          {% assign work_entry = site.data.work | where: 'paper_path', page.url | first %}
+          <p class="eyebrow">RESEARCH COLLABORATION{% if work_entry %} / {{ work_entry.name | escape }}{% endif %}</p>
           <h1 class="document-title">{{ page.title | escape }}</h1>
           <div class="document-authors">{{ page.excerpt | markdownify }}</div>
           <p class="document-meta">{{ page.venue | escape }}</p>
+          {% if work_entry %}
+          <div class="project-notes">
+            <p>{{ work_entry.summary | escape }}</p>
+            <p class="work-contribution"><span>My part</span>{{ work_entry.contribution | escape }}</p>
+            <p class="work-materials">{{ work_entry.materials_note | escape }}</p>
+          </div>
+          {% endif %}
           <div class="document-actions">
-            {% if page.paperurl %}<a class="button primary" href="{{ page.paperurl }}" target="_blank" rel="noopener noreferrer">Read paper ↗</a>{% endif %}
+            {% if work_entry.source_url %}<a class="button primary" href="{{ work_entry.source_url }}" target="_blank" rel="noopener noreferrer">{{ work_entry.source_label | default: 'Source code' | escape }} ↗</a>{% endif %}
+            {% if work_entry.evaluation_url %}<a class="button secondary" href="{{ work_entry.evaluation_url }}" target="_blank" rel="noopener noreferrer">{{ work_entry.evaluation_label | default: 'Evaluation' | escape }} ↗</a>{% endif %}
+            {% if page.paperurl %}<a class="button secondary" href="{{ page.paperurl }}" target="_blank" rel="noopener noreferrer">Read paper ↗</a>{% endif %}
             {% if page.slidesurl %}<a class="button secondary" href="{{ page.slidesurl }}" target="_blank" rel="noopener noreferrer">Slides ↗</a>{% endif %}
-            {% if page.link %}<a class="button secondary" href="{{ page.link }}" target="_blank" rel="noopener noreferrer">Project information ↗</a>{% endif %}
+            {% if page.link %}<a class="button secondary" href="{{ page.link }}" target="_blank" rel="noopener noreferrer">{% if page.link == site.data.terminal.advisor_url %}Related homepage{% else %}Project information{% endif %} ↗</a>{% endif %}
           </div>
         {% else %}
           <p class="eyebrow">~/{{ page.terminal_path | default: page.title | downcase | escape }}</p>
@@ -80,15 +89,17 @@
     <input id="command-search" type="search" placeholder="Type a page or command…" autocomplete="off" spellcheck="false">
     <div class="command-options" id="command-options">
       <a href="{{ '/#about' | relative_url }}" data-command-item data-search="about home whoami"><span>01</span> About me <small>whoami</small></a>
-      <a href="{{ '/#research' | relative_url }}" data-command-item data-search="research interests"><span>02</span> Research <small>research</small></a>
-      <a href="{{ '/publications/' | relative_url }}" data-command-item data-search="papers publications starfish moleculegc orthrus beehive"><span>03</span> Publications <small>papers</small></a>
-      <a href="{{ '/cv/' | relative_url }}" data-command-item data-search="cv resume education experience"><span>04</span> Curriculum vitae <small>cv</small></a>
+      <a href="{{ '/#approach' | relative_url }}" data-command-item data-search="approach principles values open source reproducibility collaboration"><span>02</span> How I work <small>approach</small></a>
+      <a href="{{ '/#work' | relative_url }}" data-command-item data-search="work projects code artifacts starfish moleculegc orthrus beehive"><span>03</span> Work &amp; projects <small>work</small></a>
+      <a href="{{ '/#personal' | relative_url }}" data-command-item data-search="personal hobbies music games films anime curious"><span>04</span> Away from the keyboard <small>personal</small></a>
+      <a href="{{ '/publications/' | relative_url }}" data-command-item data-search="papers publications research references"><span>↗</span> Research archive <small>papers</small></a>
+      <a href="{{ '/cv/' | relative_url }}" data-command-item data-search="cv resume education experience"><span>↗</span> Curriculum vitae <small>cv</small></a>
       <a href="{{ site.data.terminal.github_url }}" target="_blank" rel="noopener noreferrer" data-command-item data-search="github code repositories"><span>↗</span> GitHub <small>github</small></a>
       <a href="{{ site.data.terminal.scholar_url }}" target="_blank" rel="noopener noreferrer" data-command-item data-search="scholar publications citations"><span>↗</span> Google Scholar <small>scholar</small></a>
       <a href="mailto:{{ site.data.terminal.email }}" data-command-item data-search="contact email mail"><span>@</span> Send an email <small>contact</small></a>
       <button type="button" data-command-item data-search="theme dark light appearance" data-palette-theme><span>◐</span> Toggle appearance <small>theme</small></button>
     </div>
-    <p class="command-empty" id="command-empty" hidden>No matching commands. Try “papers” or “cv”.</p>
+    <p class="command-empty" id="command-empty" hidden>No matching commands. Try “work” or “cv”.</p>
     <p class="sr-only" id="command-announcement" role="status" aria-live="polite" aria-atomic="true"></p>
     <div class="command-dialog-footer"><span><kbd>↑</kbd> <kbd>↓</kbd> navigate</span><span><kbd>Enter</kbd> open</span></div>
   </dialog>

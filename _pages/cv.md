@@ -16,7 +16,7 @@ redirect_from:
 **PhD student in Computer Systems · 2025.09–present**<br>
 Institute of Computing Technology, Chinese Academy of Sciences; University of Chinese Academy of Sciences.
 
-**B.E. in Computer Science · 2021.09–2025.06**<br>
+**B.E. in Data Science and Big Data Technology · 2021.09–2025.06**<br>
 Huazhong University of Science and Technology.
 
 ## Research experience
@@ -31,8 +31,8 @@ Supervisor: Professor Chencheng Ye.
 
 ## Competitions & projects
 
-- **First prize, ASC Student Supercomputer Challenge 2024 World Final.** Optimized OpenCAE and Gomars fluid-mechanics software, achieving up to 4× speedup.
-- **Second prize, Computer System Competition — OS Kernel Track, 2024.** Implemented a kernel from scratch and deployed it on a RISC-V platform.
+- **First prize, ASC Student Supercomputer Challenge 2024 World Final.** Optimized OpenCAEPoro and GoMars through profiling, parallelization, data reuse, and computation/communication overlap. Led a 12-member team.
+- **Second prize, Computer System Competition — OS Kernel Track, 2024.** Developed an xv6-based RISC-V kernel with multithread scheduling, virtual-memory mapping, and dynamic ELF loading. Implemented FAT32 and ext4 integration.
 - **HUST Heptagon SCC Team, 2022–2025.** Participated in CPC 2023, ASC 2024, and ASC 2025.
 
 ## Publications

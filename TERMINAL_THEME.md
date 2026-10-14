@@ -30,6 +30,11 @@ For a future independent project, use `context: Independent exploration` and
 provide `details_url` and/or `source_url`; `paper_path` is optional. Do not label
 collaborative research as independent work or create placeholder projects.
 
+To include an additional publication in the terminal's `ls work/` listing without
+creating a Work card, set `terminal_name` and `terminal_label` in its publication
+record. Do not add it to `_data/work.yml`. It still appears in the publication
+archive and the web CV, with the full author list.
+
 Only add public repository links after checking their visibility. Source and
 instructions being public is not a claim that every result has been reproduced.
 Do not copy private contact details, lab addresses, or access instructions from

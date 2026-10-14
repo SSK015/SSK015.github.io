@@ -1,0 +1,2 @@
+# Preserve public PDF mirrors byte-for-byte and do not treat them as text diffs.
+*.pdf binary

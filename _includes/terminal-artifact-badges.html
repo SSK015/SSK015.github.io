@@ -3,7 +3,10 @@
 <div class="artifact-badges">
   <a class="artifact-evidence" href="{{ artifact_paper.artifact_badges_source }}" target="_blank" rel="noopener noreferrer" aria-label="Artifact evaluation: {{ artifact_paper.artifact_badges.size }} awarded badges; view official results">AE · {{ artifact_paper.artifact_badges.size }} badges ↗</a>
   <ul aria-label="Awarded artifact evaluation badges">
-    {% for badge in artifact_paper.artifact_badges %}<li>{{ badge | escape }}</li>{% endfor %}
+    {% for badge in artifact_paper.artifact_badges %}
+    {% assign badge_asset = site.data.artifact_badges[badge] %}
+    <li>{% if badge_asset %}<a href="{{ artifact_paper.artifact_badges_source }}" target="_blank" rel="noopener noreferrer" title="{{ badge | escape }} · ACM v1.1"><img src="{{ badge_asset.image | relative_url }}" alt="{{ badge | escape }}" width="756" height="752" loading="lazy" decoding="async"></a>{% else %}{{ badge | escape }}{% endif %}</li>
+    {% endfor %}
   </ul>
 </div>
 {% endif %}

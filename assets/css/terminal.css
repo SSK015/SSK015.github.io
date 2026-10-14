@@ -145,7 +145,8 @@ kbd { font-family: var(--mono); font-size: 10px; color: var(--muted); font-weigh
 .research-keywords { margin-top: 19px; padding-top: 12px; border-top: 1px dashed var(--line); color: var(--quiet); font-size: 9px; }
 .section-intro { max-width: 760px; margin-bottom: 25px; color: var(--muted); font-size: 12px; line-height: 1.85; }
 .work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-.work-card { display: flex; flex-direction: column; min-width: 0; padding: 26px; border: 1px solid var(--line); background: var(--surface); scroll-margin-top: 110px; }
+.work-card { display: flex; flex-direction: column; min-width: 0; overflow: hidden; padding: 26px; border: 1px solid var(--line); background: var(--surface); scroll-margin-top: 110px; }
+.work-cover { display: block; flex-shrink: 0; width: calc(100% + 52px); max-width: none; height: auto; aspect-ratio: 16 / 9; object-fit: cover; margin: -26px -26px 24px; border-bottom: 1px solid var(--line); background: #10181e; }
 .work-context { color: var(--quiet); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
 .work-card h3 { font-size: 24px; letter-spacing: -.8px; margin-top: 12px; }
 .work-card h3 a { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; }
@@ -166,8 +167,11 @@ kbd { font-family: var(--mono); font-size: 10px; color: var(--muted); font-weigh
 .project-notes { margin-top: 28px; padding: 22px 24px; border: 1px solid var(--line); background: var(--surface); font-size: 13px; line-height: 1.85; color: var(--muted); }
 .artifact-badges { margin-top: 15px; font-size: 9px; line-height: 1.7; }
 .artifact-evidence { display: inline-block; color: var(--accent); padding-block: 3px; }
-.artifact-badges ul { display: flex; flex-wrap: wrap; gap: 5px 7px; list-style: none; padding: 0; margin: 5px 0 0; }
-.artifact-badges li { max-width: 100%; border: 1px solid var(--line); border-radius: 2px; color: var(--muted); padding: 2px 6px; overflow-wrap: anywhere; }
+.artifact-badges ul { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; list-style: none; padding: 0; margin: 9px 0 0; }
+.artifact-badges li { max-width: 100%; color: var(--muted); padding: 0; }
+.artifact-badges li a { display: block; }
+.artifact-badges img { display: block; width: 88px; max-width: 100%; height: auto; }
+.work-card .artifact-badges img { width: 72px; }
 .pdf-provenance { color: var(--quiet); font-size: 10px; line-height: 1.8; margin-top: 14px; }
 .pdf-provenance a { text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
 .publication-list { border-top: 1px solid var(--line); }
@@ -188,7 +192,9 @@ kbd { font-family: var(--mono); font-size: 10px; color: var(--muted); font-weigh
 .paper-links a { padding-block: 3px; }
 .paper-arrow { padding-top: 5px; color: var(--quiet); font-size: 16px; }
 .paper-row:has(h3 a:hover) .paper-arrow { color: var(--accent); }
-.personal-section { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; padding-bottom: 72px; }
+.personal-section { display: grid; grid-template-columns: 1fr 1.12fr; gap: 50px; align-items: center; padding-bottom: 72px; }
+.personal-art { min-width: 0; overflow: hidden; border: 1px solid var(--line); background: #10181e; }
+.personal-art img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
 .personal-copy > p:not(.eyebrow) { color: var(--muted); font-size: 12px; margin-top: 15px; }
 .hobby-tags { display: flex; flex-wrap: wrap; gap: 9px; list-style: none; margin: 25px 0 0; padding: 0; }
 .hobby-tags li { border: 1px solid var(--line); background: var(--surface); color: var(--muted); padding: 8px 12px; font-size: 11px; }
@@ -224,8 +230,8 @@ kbd { font-family: var(--mono); font-size: 10px; color: var(--muted); font-weigh
 .prose .paper-authors strong { color: var(--ink); }
 .prose .paper-content h3 { font-size: 15px; margin: 0; }
 .prose .paper-featured-label { margin-bottom: 8px; }
-.prose .artifact-badges ul { padding: 0; margin: 5px 0 0; }
-.prose .artifact-badges li { font-size: 9px; line-height: 1.7; padding: 2px 6px; margin: 0; }
+.prose .artifact-badges ul { padding: 0; margin: 9px 0 0; }
+.prose .artifact-badges li { font-size: 9px; line-height: 1.7; padding: 0; margin: 0; }
 .publication-note { margin-bottom: 28px !important; font-size: 12px; }
 .publication-summary { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 10px 24px; margin: 0 0 26px; padding: 20px 22px; border: 1px solid var(--line); background: var(--surface); font-size: 13px; line-height: 1.8; }
 .publication-summary dt { color: var(--ink); font-weight: 500; }
@@ -289,6 +295,7 @@ kbd { font-family: var(--mono); font-size: 10px; color: var(--muted); font-weigh
   .research-keywords { font-size: 8px; }
   .work-grid { grid-template-columns: 1fr; }
   .work-card { padding: 23px 20px; scroll-margin-top: 140px; }
+  .work-cover { width: calc(100% + 40px); margin: -23px -20px 22px; }
   .work-card h3 { font-size: 23px; }
   .engineering-note { grid-template-columns: 1fr; gap: 9px; }
   .engineering-note .text-link { grid-column: auto; grid-row: auto; justify-self: start; padding-top: 4px; }
@@ -302,6 +309,7 @@ kbd { font-family: var(--mono); font-size: 10px; color: var(--muted); font-weigh
   .paper-featured::before { left: -10px; }
   .paper-links { font-size: 9px; gap: 15px; }
   .personal-section, .contact-section { grid-template-columns: 1fr; gap: 14px; }
+  .personal-art { margin-top: 14px; }
   .personal-section { padding-bottom: 45px; }
   .hobby-tags { margin-top: 8px; }
   .contact-section { padding-block: 32px 36px; gap: 24px; }
@@ -334,6 +342,7 @@ kbd { font-family: var(--mono); font-size: 10px; color: var(--muted); font-weigh
   .terminal-caption { font-size: 9px; }
   .email-link { font-size: 14px; }
   .main-nav { gap: 6px; }
+  .artifact-badges img, .work-card .artifact-badges img { width: 56px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

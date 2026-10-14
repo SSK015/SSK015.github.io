@@ -3,6 +3,7 @@
 # A public repository is not a claim that its results have been re-run here.
 - id: starfish
   name: "Starfish"
+  cover_image: "/assets/images/projects/starfish-cover-v1.webp"
   context: "Research collaboration"
   paper_path: "/atc26starfish"
   summary: "A fault-tolerant far-memory runtime designed to keep protection overhead low."
@@ -15,6 +16,7 @@
   terminal_label: "far-memory runtime"
 - id: orthrus
   name: "Orthrus"
+  cover_image: "/assets/images/projects/orthrus-cover-v1.webp"
   context: "Research collaboration"
   paper_path: "/sosp25orthrus"
   summary: "Detecting silent data corruption in cloud applications through computation validation."
@@ -27,6 +29,7 @@
   terminal_label: "fault-injection tools"
 - id: beehive
   name: "Beehive"
+  cover_image: "/assets/images/projects/beehive-cover-v1.webp"
   context: "Research collaboration"
   paper_path: "/nsdi25beehive"
   summary: "A far-memory runtime that overlaps remote-memory access with asynchronous execution."
@@ -37,6 +40,7 @@
   terminal_label: "runtime & setup"
 - id: moleculegc
   name: "MoleculeGC"
+  cover_image: "/assets/images/projects/moleculegc-cover-v1.webp"
   context: "Research collaboration"
   paper_path: "/eurosys27moleculegc"
   summary: "Garbage collection for tiered memory, with short pauses and efficient CPU use."

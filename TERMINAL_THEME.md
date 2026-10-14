@@ -54,6 +54,18 @@ documented in `files/papers/README.md`.
 `artifact_badges_source` pointing to the official award record. A public repo or
 an artifact appendix alone does not establish an award. The reusable badge strip
 appears in project cards, the research archive, the web CV, and paper details.
+The strip uses the unmodified official ACM v1.1 images in `assets/images/badges/`,
+mapped by `_data/artifact_badges.yml`, with accessible names and a link to the
+award record. Do not recolor badges or show them for unverified awards.
+
+## Homepage artwork
+
+`cover_image` in `_data/work.yml` adds a large illustration above a project card.
+`personal_art` in `_data/terminal.yml` supplies the interest-section illustration.
+These are decorative artwork, not system architecture diagrams, screenshots of
+an implementation, or claims about measured results. Keep the verified project
+text unchanged. Use local, optimized assets with reserved dimensions and lazy
+loading. Artwork prompts and provenance are recorded in `assets/images/README.md`.
 
 ## Local preview
 

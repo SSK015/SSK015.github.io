@@ -1,7 +1,7 @@
 # Public paper mirrors
 
-These two papers are hosted on a coauthor's personal website for direct access.
-The PDF files are unchanged copies of publicly available versions. Original
+These two PDF copies are mirrored on Yanwen Xia's personal website for direct
+access, from the public source URLs listed below. They are unchanged copies. Original
 authorship, attribution, license statements, and publisher notices are retained.
 No private review manuscript is used.
 

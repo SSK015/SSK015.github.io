@@ -79,6 +79,10 @@
   items.forEach(item => item.addEventListener('click', () => {
     if (item.hasAttribute('data-palette-theme')) toggleTheme();
     closeCommands();
+    if (item.hasAttribute('data-palette-fortune')) {
+      printFortune('fortune');
+      if (input) input.focus();
+    }
   }));
   document.addEventListener('keydown', event => {
     if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
@@ -93,6 +97,13 @@
   const form = document.querySelector('#terminal-form');
   const input = document.querySelector('#terminal-input');
   const history = document.querySelector('#terminal-history');
+  const fortuneData = document.querySelector('#terminal-fortunes');
+  let fortunes = [];
+  let previousFortune = -1;
+  try {
+    const data = JSON.parse(fortuneData ? fortuneData.textContent : '[]');
+    if (Array.isArray(data)) fortunes = [...new Set(data.filter(value => typeof value === 'string' && value.trim()).map(value => value.trim()))];
+  } catch (_) {}
   const typedCommands = [];
   let historyIndex = 0;
   function printResult(command, output) {
@@ -112,6 +123,22 @@
     while (history.children.length > 6) history.firstElementChild.remove();
     history.scrollTop = history.scrollHeight;
   }
+  function printFortune(command) {
+    if (!history) return;
+    if (!fortunes.length) {
+      printResult(command, 'The fortune cookie is empty. Try again after the next bake.');
+      return;
+    }
+    let next;
+    if (fortunes.length > 1 && previousFortune >= 0) {
+      next = Math.floor(Math.random() * (fortunes.length - 1));
+      if (next >= previousFortune) next += 1;
+    } else {
+      next = Math.floor(Math.random() * fortunes.length);
+    }
+    previousFortune = next;
+    printResult(command, '🥠 ' + fortunes[next]);
+  }
   const routes = {
     about: '/#about', approach: '/#approach', work: '/#work', personal: '/#personal',
     research: '/publications/', papers: '/publications/', publications: '/publications/',
@@ -128,7 +155,9 @@
     historyIndex = typedCommands.length;
     if (key === 'clear') { history.replaceChildren(); return; }
     if (key === 'help') {
-      printResult(command, 'about · approach · work · personal · contact\nwhoami · ls · cat approach.txt · cat interests.txt\npapers · cv · github · scholar · theme · clear\nCtrl / ⌘ K opens the command menu.');
+      printResult(command, 'about · approach · work · personal · contact\nwhoami · ls · cat approach.txt · cat interests.txt\npapers · cv · github · scholar · theme · fortune · clear\nCtrl / ⌘ K opens the command menu.');
+    } else if (key === 'fortune') {
+      printFortune(command);
     } else if (key === 'whoami') {
       printResult(command, 'Yanwen Xia / 夏彦文\nSystems, tools, and curious exploration\nPhD student · ICT, CAS & UCAS · Beijing, China');
     } else if (key === 'ls') {

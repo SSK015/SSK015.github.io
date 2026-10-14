@@ -19,6 +19,7 @@ for the other archive pages.
   rather than the homepage's primary content.
 - `assets/css/terminal.css`: colors, spacing, responsive layouts, and print.
 - `assets/js/terminal.js`: the profile terminal and command menu.
+- `_data/fortunes.yml`: editable original short quotes for the `fortune` command.
 
 Set `publication_status: Accepted` for accepted papers in the research archive.
 The archive remains chronological; the homepage uses the order in `_data/work.yml`.
@@ -83,7 +84,11 @@ Open http://127.0.0.1:4173/. GitHub Pages still builds the existing
 - Arrow keys / Enter: choose a menu action; Escape closes the native dialog.
 - Homepage terminal: `help`, `whoami`, `ls`, `cat approach.txt`, `cat interests.txt`,
   `about`, `approach`, `work`, `personal`, `papers`, `cv`, `contact`, `github`,
-  `scholar`, `theme`, and `clear`.
+  `scholar`, `theme`, `fortune`, and `clear`.
+- `fortune`: draw a local fortune-cookie quote. It avoids consecutive repeats,
+  handles an empty or single-quote pool, and makes no network requests. The same
+  action is available in the homepage's command menu. Edit `_data/fortunes.yml`
+  to add/remove quotes; duplicate and blank entries are ignored by the client.
 - `research` and `publications` remain aliases for the research archive;
   the old `#research` and `#publications` home anchors are retained.
 - The terminal is a profile navigator, not a shell or remote login.

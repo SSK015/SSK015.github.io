@@ -31,6 +31,7 @@
           {% for project in site.data.work %}<a href="#work-{{ project.id }}"><span>{{ project.id | escape }}</span><span>{{ project.terminal_label | escape }}</span></a>{% endfor %}
         </div>
         <div class="terminal-history" id="terminal-history" role="log" aria-live="polite" aria-label="Command output"></div>
+        <script type="application/json" id="terminal-fortunes">{{ site.data.fortunes | jsonify | replace: '<', '\u003c' }}</script>
         <form class="terminal-input-line enhanced-only" id="terminal-form">
           <label for="terminal-input" class="terminal-prompt" aria-label="Command">$</label>
           <input id="terminal-input" name="command" type="text" placeholder="type help ↵" aria-label="Terminal command; type help for available commands" autocomplete="off" spellcheck="false" maxlength="120">
@@ -39,7 +40,7 @@
       </div>
       <div class="terminal-status"><span><span class="status-dot" aria-hidden="true"></span> profile.session</span><span>UTF-8 / en + zh</span></div>
     </div>
-    <p class="terminal-caption"><span aria-hidden="true">└─</span> A small terminal. Try <code>help</code>, <code>work</code>, or <code>cv</code>.</p>
+    <p class="terminal-caption"><span aria-hidden="true">└─</span> A small terminal. Try <code>help</code>, <code>work</code>, or <code>fortune</code>.</p>
   </div>
 </section>
 <div class="section-rule section-wrap"><span>BUILD / INSPECT / SHARE / COLLABORATE</span><span aria-hidden="true">[ scroll to explore ↓ ]</span></div>

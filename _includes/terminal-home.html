@@ -29,6 +29,7 @@
         <div class="terminal-line"><span class="terminal-prompt">$</span> ls work/</div>
         <div class="terminal-files">
           {% for project in site.data.work %}<a href="#work-{{ project.id }}"><span>{{ project.id | escape }}</span><span>{{ project.terminal_label | escape }}</span></a>{% endfor %}
+          {% for paper in site.publications reversed %}{% if paper.terminal_name %}<a href="{{ paper.url | relative_url }}"><span>{{ paper.terminal_name | escape }}</span><span>{{ paper.terminal_label | escape }}</span></a>{% endif %}{% endfor %}
         </div>
         <div class="terminal-history" id="terminal-history" role="log" aria-live="polite" aria-label="Command output"></div>
         <form class="terminal-input-line enhanced-only" id="terminal-form">

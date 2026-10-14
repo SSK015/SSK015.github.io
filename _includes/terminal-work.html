@@ -2,6 +2,7 @@
 {% assign work_paper = site.publications | where: 'url', project.paper_path | first %}
 {% assign details_url = project.details_url | default: project.paper_path | default: project.source_url %}
 <article class="work-card" id="work-{{ project.id }}" aria-labelledby="work-title-{{ project.id }}">
+  {% if project.cover_image %}<img class="work-cover" src="{{ project.cover_image | relative_url }}" alt="" width="1672" height="941" loading="lazy" decoding="async">{% endif %}
   <p class="work-context">{{ project.context | escape }}</p>
   <h3 id="work-title-{{ project.id }}">
     <a href="{{ details_url | relative_url }}">

@@ -1,0 +1,9 @@
+{% assign artifact_paper = include.paper %}
+{% if artifact_paper.artifact_badges.size > 0 %}
+<div class="artifact-badges">
+  <a class="artifact-evidence" href="{{ artifact_paper.artifact_badges_source }}" target="_blank" rel="noopener noreferrer" aria-label="Artifact evaluation: {{ artifact_paper.artifact_badges.size }} awarded badges; view official results">AE · {{ artifact_paper.artifact_badges.size }} badges ↗</a>
+  <ul aria-label="Awarded artifact evaluation badges">
+    {% for badge in artifact_paper.artifact_badges %}<li>{{ badge | escape }}</li>{% endfor %}
+  </ul>
+</div>
+{% endif %}

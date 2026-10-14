@@ -6,6 +6,12 @@ venue_short: NSDI
 display_year: "2025"
 category: conferences
 paperurl: 'https://www.usenix.org/system/files/nsdi25-li-quanxi.pdf'
+pdf_local: '/files/papers/beehive-nsdi-2025.pdf'
+pdf_source_url: 'https://www.usenix.org/system/files/nsdi25-li-quanxi.pdf'
+pdf_source_name: 'USENIX proceedings'
+pdf_pages: 22
+pdf_sha256: '75e4b9aa216d22e02ee1e7bc22b2063e0794ac8727b46228287f2f00526ca320'
+pdf_checked: '2026-10-14'
 slidesurl: 'https://www.usenix.org/system/files/nsdi25_slides-li-quanxi.pdf'
 permalink: 'nsdi25beehive'
 excerpt: 'Quanxi Li, Hong Huang, Ying Liu, **_Yanwen Xia_**, Jie Zhang, Mosong Zhou, Xiaobing Feng, Huimin Cui, Quan Chen, Yizhou Shan, Chenxi Wang*'

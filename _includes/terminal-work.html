@@ -1,13 +1,16 @@
 {% assign project = include.project %}
+{% assign work_paper = site.publications | where: 'url', project.paper_path | first %}
 {% assign details_url = project.details_url | default: project.paper_path | default: project.source_url %}
 <article class="work-card" id="work-{{ project.id }}" aria-labelledby="work-title-{{ project.id }}">
   <p class="work-context">{{ project.context | escape }}</p>
   <h3 id="work-title-{{ project.id }}"><a href="{{ details_url | relative_url }}">{{ project.name | escape }} <span aria-hidden="true">↗</span></a></h3>
   <p class="work-summary">{{ project.summary | escape }}</p>
+  {% include terminal-artifact-badges.html paper=work_paper %}
   <p class="work-contribution"><span>My part</span>{{ project.contribution | escape }}</p>
   <div class="work-links">
     {% if project.source_url %}<a href="{{ project.source_url }}" target="_blank" rel="noopener noreferrer">{{ project.source_label | default: 'Source code' | escape }} ↗</a>{% endif %}
     {% if project.evaluation_url %}<a href="{{ project.evaluation_url }}" target="_blank" rel="noopener noreferrer">{{ project.evaluation_label | default: 'Evaluation' | escape }} ↗</a>{% endif %}
+    {% if work_paper.pdf_local %}<a href="{{ work_paper.pdf_local | relative_url }}" type="application/pdf" target="_blank" rel="noopener noreferrer">PDF ↗</a>{% endif %}
     {% if project.paper_path %}<a href="{{ project.paper_path | relative_url }}">Project &amp; contributors ↗</a>{% elsif project.details_url %}<a href="{{ project.details_url | relative_url }}">Project notes ↗</a>{% endif %}
   </div>
   <p class="work-materials">{{ project.materials_note | escape }}</p>

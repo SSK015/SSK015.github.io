@@ -22,7 +22,9 @@ for the other archive pages.
 
 Set `publication_status: Accepted` for accepted papers in the research archive.
 The archive remains chronological; the homepage uses the order in `_data/work.yml`.
-No author-rank badges or conference-year display appear on the homepage.
+No author-rank badges appear on the homepage. Research project names have a
+smaller italic `@Conference Year` suffix, drawn from the linked publication's
+`venue_short` and `display_year`. Projects without a linked publication omit it.
 
 For a future independent project, use `context: Independent exploration` and
 provide `details_url` and/or `source_url`; `paper_path` is optional. Do not label

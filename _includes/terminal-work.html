@@ -3,7 +3,15 @@
 {% assign details_url = project.details_url | default: project.paper_path | default: project.source_url %}
 <article class="work-card" id="work-{{ project.id }}" aria-labelledby="work-title-{{ project.id }}">
   <p class="work-context">{{ project.context | escape }}</p>
-  <h3 id="work-title-{{ project.id }}"><a href="{{ details_url | relative_url }}">{{ project.name | escape }} <span aria-hidden="true">↗</span></a></h3>
+  <h3 id="work-title-{{ project.id }}">
+    <a href="{{ details_url | relative_url }}">
+      <span class="work-title-text">
+        <span class="work-name">{{ project.name | escape }}</span>
+        {% if work_paper.venue_short and work_paper.display_year %}<span class="work-venue">@{{ work_paper.venue_short | escape }} {{ work_paper.display_year | escape }}</span>{% endif %}
+      </span>
+      <span class="work-arrow" aria-hidden="true">↗</span>
+    </a>
+  </h3>
   <p class="work-summary">{{ project.summary | escape }}</p>
   {% include terminal-artifact-badges.html paper=work_paper %}
   <p class="work-contribution"><span>My part</span>{{ project.contribution | escape }}</p>

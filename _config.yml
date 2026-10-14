@@ -10,8 +10,8 @@
 locale                   : "en-US"
 title                    : "Yanwen Xia"
 title_separator          : "-"
-name                     : &name "Yanwen Xia（夏 彦文）"
-description              : &description "Undergraduate student at HUST, Incoming Phd student at ICT"
+name                     : &name "Yanwen Xia（夏彦文）"
+description              : &description "Yanwen Xia — systems, tools, and explorations. Building useful work that others can run, understand, and build on."
 url                      : https://ssk015.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "ssk015/ssk015.github.io"
@@ -24,7 +24,7 @@ author:
   avatar           : "profile1.jpg"
   name             : "Yanwen Xia"
   # pronouns         : # example: "she/her"  
-  bio              : "PhD student in Computer System"
+  bio              : "PhD student in Computer Systems"
   location         : "Beijing, China"
   employer         : "UCAS, ICT@CAS"
   uri              : # URL
@@ -34,7 +34,7 @@ author:
   arxiv            : # URL - Update with the correct link to your profile
   googlescholar    : "https://scholar.google.com/citations?hl=zh-CN&view_op=list_works&gmla=AH8HC4ywKHtgq65ZlPBXNE8VQgn3qsj1QbXBfmagE3efEgQZpVcRU0_ofMpKGq67WyGjf4thnUnTfxrzvkvgX-EuVcs&user=3rEuZFwAAAAJ"
   impactstory      : # URL
-  orcid            : "http://orcid.org/yourorcidurl"
+  orcid            : # Add a verified ORCID before displaying this link.
   semantic         : # URL
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   researchgate     : # URL

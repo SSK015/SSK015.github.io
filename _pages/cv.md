@@ -1,49 +1,44 @@
 ---
-layout: archive
+layout: terminal
 title: "CV"
 permalink: /cv/
-author_profile: true
+author_profile: false
+terminal_path: cv
+subtitle: "Yanwen Xia · Computer systems researcher"
 redirect_from:
   - /resume
 ---
 
-{% include base_path %}
+<div class="cv-contact"><a href="mailto:{{ site.data.terminal.email }}">{{ site.data.terminal.email }}</a><span>Beijing, China</span><button class="print-cv enhanced-only" type="button" data-print-cv>Print / save PDF ↗</button></div>
 
-Born in January 2004, 21 years old.
+## Education
 
-Education
-======
-* B.E. in Computer Science, Huazhong University of Science and Technology, 2021.9-2025.6
-* PhD Student in Computer Systems, Institue of Computing Technology, starting in 2025.9 
+**PhD student in Computer Systems · 2025.09–present**<br>
+Institute of Computing Technology, Chinese Academy of Sciences; University of Chinese Academy of Sciences.
 
-Research experience
-======
-* 2024.4-2025.8: Research Assistant & Guest Student
-  * University of Chinese Academy of Sciences
-  * Duties included: Developing research projects
-  * Supervisor: Professor Chenxi Wang
-* 2023.1-2024.6: Research Assistant
-  * Huazhong University of Science and Technology
-  * Duties included: Developing research projects
-  * Supervisor: Professor Chencheng Ye
+**B.E. in Data Science and Big Data Technology · 2021.09–2025.06**<br>
+Huazhong University of Science and Technology.
 
-<!-- Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3 -->
+## Research experience
 
-Other Experience (Contests and Projects)
-======
-* First prize, ASC Student Supercomuter Challenge 24 World Final, a famous HPC game (2024). Optimizing OpenCAE and Gomars, two fluid Mechanics software, improve their performance by up to 4 $times$.
-* Sencond prize, Computer System Competition‑OS Kernel Track (2024). Implemented a kernel from scratch and deployed it on RISCV platform.
-* A member of [HUST Heptagon SCC Team](https://github.com/heptagonhust) (2022-2025). Participating in a series of competitions including CPC23, ASC24, ASC25 and etc.
+**Research Assistant & Guest Student · 2024.04–2025.08**<br>
+University of Chinese Academy of Sciences. Developing research projects.<br>
+Supervisor: Professor Chenxi Wang.
 
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
+**Research Assistant · 2023.01–2024.06**<br>
+Huazhong University of Science and Technology. Developing research projects.<br>
+Supervisor: Professor Chencheng Ye.
+
+## Competitions & projects
+
+- **First prize, ASC Student Supercomputer Challenge 2024 World Final.** Optimized OpenCAEPoro and GoMars through profiling, parallelization, data reuse, and computation/communication overlap. Led a 12-member team.
+- **Second prize, Computer System Competition — OS Kernel Track, 2024.** Developed an xv6-based RISC-V kernel with multithread scheduling, virtual-memory mapping, and dynamic ELF loading. Implemented FAT32 and ext4 integration.
+- **HUST Heptagon SCC Team, 2022–2025.** Participated in CPC 2023, ASC 2024, and ASC 2025.
+
+## Publications
+
+<div class="publication-list cv-publications">
+{% for paper in site.publications reversed %}
+  {% include terminal-paper.html paper=paper %}
+{% endfor %}
+</div>

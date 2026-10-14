@@ -1,6 +1,10 @@
 ---
 title: "MoleculeGC: a Low-pause and High-CPU-efficiency Garbage Collector for Tiered Memory"
 collection: publications
+layout: terminal
+venue_short: EuroSys
+display_year: "2027"
+publication_status: Accepted
 category: conferences
 link: 'https://wangchenxi7.github.io/home/'
 permalink: eurosys27moleculegc

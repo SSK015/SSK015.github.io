@@ -1,0 +1,77 @@
+<section class="hero section-wrap" id="about" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> BUILD / EXPLORE / SHARE</p>
+    <h1 id="hero-title">Yanwen<br>Xia<span class="title-dot">.</span></h1>
+    <p class="chinese-name" lang="zh">夏彦文 <span aria-hidden="true">/</span> <span lang="en">Beijing, China</span></p>
+    <p class="hero-tagline">{{ site.data.terminal.tagline | escape }}</p>
+    <p class="hero-intro">{{ site.data.terminal.intro | escape }}</p>
+    <p class="hero-intro">{{ site.data.terminal.agents_intro | escape }}</p>
+    <p class="hero-affiliation">My systems background is in far memory, fault tolerance, and runtimes.<br>Currently a PhD student at <abbr title="Institute of Computing Technology, Chinese Academy of Sciences">ICT, CAS</abbr> &amp; <abbr title="University of Chinese Academy of Sciences">UCAS</abbr>.</p>
+    <div class="hero-actions">
+      <a class="button primary" href="#work">Explore my work <span aria-hidden="true">↓</span></a>
+      <a class="button secondary" href="#contact">Say hello <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="social-links">
+      <a href="{{ site.data.terminal.github_url }}" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      <a href="{{ site.data.terminal.scholar_url }}" target="_blank" rel="noopener noreferrer">Scholar ↗</a>
+      <a href="{{ '/cv/' | relative_url }}">CV ↗</a>
+      <a href="mailto:{{ site.data.terminal.email }}">Email ↗</a>
+    </div>
+  </div>
+  <div class="hero-side">
+    <div class="terminal-window" aria-label="Interactive profile terminal">
+      <div class="terminal-titlebar"><div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div><span>yanwen@workbench: ~</span><span class="terminal-title-mark" aria-hidden="true">⌁</span></div>
+      <div class="terminal-body">
+        <div class="terminal-line"><span class="terminal-prompt">$</span> whoami</div>
+        <div class="terminal-profile"><div><strong>Yanwen Xia <span lang="zh">/ 夏彦文</span></strong><span>Systems, tools &amp; curious exploration</span></div></div>
+        <div class="terminal-line"><span class="terminal-prompt">$</span> cat approach.txt</div>
+        <p class="terminal-output">build solid systems &nbsp;·&nbsp; share what I can<br>checkable experiments &nbsp;·&nbsp; shared credit</p>
+        <div class="terminal-line"><span class="terminal-prompt">$</span> ls work/</div>
+        <div class="terminal-files">
+          {% for project in site.data.work %}<a href="#work-{{ project.id }}"><span>{{ project.id | escape }}</span><span>{{ project.terminal_label | escape }}</span></a>{% endfor %}
+        </div>
+        <div class="terminal-history" id="terminal-history" role="log" aria-live="polite" aria-label="Command output"></div>
+        <form class="terminal-input-line enhanced-only" id="terminal-form">
+          <label for="terminal-input" class="terminal-prompt" aria-label="Command">$</label>
+          <input id="terminal-input" name="command" type="text" placeholder="type help ↵" aria-label="Terminal command; type help for available commands" autocomplete="off" spellcheck="false" maxlength="120">
+          <button type="submit" class="terminal-submit" aria-label="Run command">↵</button>
+        </form>
+      </div>
+      <div class="terminal-status"><span><span class="status-dot" aria-hidden="true"></span> profile.session</span><span>UTF-8 / en + zh</span></div>
+    </div>
+    <p class="terminal-caption"><span aria-hidden="true">└─</span> A small terminal. Try <code>help</code>, <code>work</code>, or <code>cv</code>.</p>
+  </div>
+</section>
+<div class="section-rule section-wrap"><span>BUILD / INSPECT / SHARE / COLLABORATE</span><span aria-hidden="true">[ scroll to explore ↓ ]</span></div>
+<section class="section-wrap content-section" id="approach" aria-labelledby="approach-title">
+  <span id="research" aria-hidden="true"></span>
+  <div class="section-heading"><div><p class="eyebrow">01 / APPROACH</p><h2 id="approach-title">Built to be useful<span class="title-dot">.</span></h2></div><p class="section-note">How I want to work,<br>and what I bring to a project.</p></div>
+  <p class="section-intro">I can help with systems prototyping, performance debugging, and setting up experiments that others can inspect.</p>
+  <div class="research-grid">
+    {% for area in site.data.terminal.approach %}
+    <article class="research-item">
+      <div class="research-item-top"><span>{{ area.index }}</span><span>{{ area.label | escape }}</span><span aria-hidden="true">+</span></div>
+      <h3>{{ area.name | escape }}</h3>
+      <p>{{ area.description | escape }}</p>
+      <p class="research-keywords">{{ area.keywords | escape }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+<section class="section-wrap content-section" id="work" aria-labelledby="work-title">
+  <span id="publications" aria-hidden="true"></span>
+  <div class="section-heading"><div><p class="eyebrow">02 / WORK</p><h2 id="work-title">Things I've worked on<span class="title-dot">.</span></h2></div><a class="text-link" href="{{ '/publications/' | relative_url }}">Papers &amp; references ↗</a></div>
+  <p class="section-intro">These systems are research collaborations. Each entry describes my part and links to the full team and available materials.</p>
+  <div class="work-grid">
+    {% for project in site.data.work %}{% include terminal-work.html project=project %}{% endfor %}
+  </div>
+  <div class="engineering-note"><h3>Other hands-on work</h3><p>I've also worked on an xv6-based RISC-V kernel and scientific-computing optimization, and led a student supercomputing team.</p><a class="text-link" href="{{ '/cv/' | relative_url }}">Engineering background ↗</a></div>
+</section>
+<section class="section-wrap content-section personal-section" id="personal" aria-labelledby="personal-title">
+  <div class="personal-copy"><p class="eyebrow">03 / AWAY FROM THE KEYBOARD</p><h2 id="personal-title">Still curious<span class="title-dot">.</span></h2><p>I like exploring systems beyond the screen, too.</p><p>{{ site.data.terminal.recent_favorite | escape }}</p></div>
+  <ul class="hobby-tags">{% for hobby in site.data.terminal.hobbies %}<li>{{ hobby | escape }}</li>{% endfor %}</ul>
+</section>
+<section class="section-wrap contact-section" id="contact" aria-labelledby="contact-title">
+  <div><p class="eyebrow">04 / CONTACT</p><h2 id="contact-title">Let's build something useful<span class="title-dot">.</span></h2><p>Happy to compare ideas, work through systems problems, or explore agent tools together.</p></div>
+  <div class="contact-details"><a class="email-link" href="mailto:{{ site.data.terminal.email }}">{{ site.data.terminal.email }} <span aria-hidden="true">↗</span></a><details><summary>Other ways to reach me</summary><p>Qzone: 2437103317<br>WeChat: 18252677381</p></details></div>
+</section>

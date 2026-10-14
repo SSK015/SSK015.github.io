@@ -1,0 +1,18 @@
+{% assign paper = include.paper %}
+{% assign work_entry = site.data.work | where: 'paper_path', paper.url | first %}
+<article class="paper-row">
+  <div class="paper-venue"><span>{{ paper.venue_short | escape }}</span><strong>{{ paper.display_year | escape }}</strong>{% if paper.publication_status == 'Accepted' %}<span class="accepted-badge">accepted</span>{% endif %}</div>
+  <div class="paper-content">
+    <h3><a href="{{ paper.url | relative_url }}">{{ paper.title | escape }}</a></h3>
+    <div class="paper-authors">{{ paper.excerpt | markdownify }}</div>
+    <div class="paper-links">
+      {% if work_entry.source_url %}<a href="{{ work_entry.source_url }}" target="_blank" rel="noopener noreferrer">{{ work_entry.source_label | default: 'Source code' | escape }} ↗</a>{% endif %}
+      {% if work_entry.evaluation_url %}<a href="{{ work_entry.evaluation_url }}" target="_blank" rel="noopener noreferrer">{{ work_entry.evaluation_label | default: 'Evaluation' | escape }} ↗</a>{% endif %}
+      <a href="{{ paper.url | relative_url }}">Details ↗</a>
+      {% if paper.paperurl %}<a href="{{ paper.paperurl }}" target="_blank" rel="noopener noreferrer">Paper ↗</a>{% endif %}
+      {% if paper.slidesurl %}<a href="{{ paper.slidesurl }}" target="_blank" rel="noopener noreferrer">Slides ↗</a>{% endif %}
+      {% if paper.link %}<a href="{{ paper.link }}" target="_blank" rel="noopener noreferrer">{% if paper.link == site.data.terminal.advisor_url %}Related homepage{% else %}Project info{% endif %} ↗</a>{% endif %}
+    </div>
+  </div>
+  <span class="paper-arrow" aria-hidden="true">↗</span>
+</article>

@@ -19,7 +19,7 @@
     } catch (_) {}
   </script>
   <link rel="stylesheet" href="{{ '/assets/css/terminal.css' | relative_url }}?v={{ site.time | date: '%s' }}">
-  <script src="{{ '/assets/js/terminal.js' | relative_url }}" defer></script>
+  <script src="{{ '/assets/js/terminal.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
 </head>
 <body data-home="{{ page.home | default: false }}" data-baseurl="{{ site.baseurl }}">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -101,6 +101,7 @@
       <a href="{{ site.data.terminal.scholar_url }}" target="_blank" rel="noopener noreferrer" data-command-item data-search="scholar publications citations"><span>↗</span> Google Scholar <small>scholar</small></a>
       <a href="mailto:{{ site.data.terminal.email }}" data-command-item data-search="contact email mail"><span>@</span> Send an email <small>contact</small></a>
       <button type="button" data-command-item data-search="theme dark light appearance" data-palette-theme><span>◐</span> Toggle appearance <small>theme</small></button>
+      {% if page.home %}<button type="button" data-command-item data-search="fortune cookie random luck easter egg 彩蛋 随机" data-palette-fortune><span>🥠</span> Fortune cookie <small>fortune</small></button>{% endif %}
     </div>
     <p class="command-empty" id="command-empty" hidden>No matching commands. Try “work” or “cv”.</p>
     <p class="sr-only" id="command-announcement" role="status" aria-live="polite" aria-atomic="true"></p>

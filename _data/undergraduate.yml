@@ -1,0 +1,16 @@
+# Project facts are taken from the existing CV (_pages/cv.md).
+- id: riscv-kernel
+  name: xv6-based RISC-V kernel
+  context: Undergraduate project · 2024
+  cover_image: /assets/images/projects/riscv-kernel-cover-v1.webp
+  summary: Extending a teaching kernel with scheduling, memory, executable-loading, and filesystem support.
+  contribution: Developed multithread scheduling, virtual-memory mapping, and dynamic ELF loading. Implemented FAT32 and ext4 integration.
+  note: Second prize, Computer System Competition — OS Kernel Track, 2024.
+
+- id: supercomputing
+  name: Scientific computing & supercomputing
+  context: Undergraduate team projects · 2022–2025
+  cover_image: /assets/images/projects/supercomputing-cover-v1.webp
+  summary: Application optimization and teamwork with the HUST Heptagon SCC Team.
+  contribution: Optimized OpenCAEPoro and GoMars through profiling, parallelization, data reuse, and computation/communication overlap. Led a 12-member team at ASC 2024.
+  note: First prize, ASC Student Supercomputer Challenge 2024 World Final.

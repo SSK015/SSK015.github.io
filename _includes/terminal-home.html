@@ -66,7 +66,13 @@
   <div class="work-grid">
     {% for project in site.data.work %}{% include terminal-work.html project=project %}{% endfor %}
   </div>
-  <div class="engineering-note"><h3>Other hands-on work</h3><p>I've also worked on an xv6-based RISC-V kernel and scientific-computing optimization, and led a student supercomputing team.</p><a class="text-link" href="{{ '/cv/' | relative_url }}">Engineering background ↗</a></div>
+  <section class="undergraduate-projects" id="undergraduate" aria-labelledby="undergraduate-title">
+    <div class="undergraduate-heading"><h3 id="undergraduate-title">Undergraduate projects</h3><a class="text-link" href="{{ '/cv/' | relative_url }}">Engineering background ↗</a></div>
+    <p class="section-intro">During my undergraduate studies, I worked on an xv6-based RISC-V kernel, optimized scientific-computing applications, and led a student supercomputing team.</p>
+    <div class="work-grid undergraduate-grid">
+      {% for project in site.data.undergraduate %}{% include terminal-undergraduate.html project=project %}{% endfor %}
+    </div>
+  </section>
 </section>
 <section class="section-wrap content-section personal-section" id="personal" aria-labelledby="personal-title">
   <div class="personal-copy"><p class="eyebrow">03 / AWAY FROM THE KEYBOARD</p><h2 id="personal-title">Still curious<span class="title-dot">.</span></h2><p>I like exploring systems beyond the screen, too.</p><p>{{ site.data.terminal.recent_favorite | escape }}</p><ul class="hobby-tags">{% for hobby in site.data.terminal.hobbies %}<li>{{ hobby | escape }}</li>{% endfor %}</ul></div>

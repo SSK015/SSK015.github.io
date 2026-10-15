@@ -145,8 +145,8 @@ kbd { font-family: var(--mono); font-size: 10px; color: var(--muted); font-weigh
 .research-keywords { margin-top: 19px; padding-top: 12px; border-top: 1px dashed var(--line); color: var(--quiet); font-size: 9px; }
 .section-intro { max-width: 760px; margin-bottom: 25px; color: var(--muted); font-size: 12px; line-height: 1.85; }
 .work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-.work-card { display: flex; flex-direction: column; min-width: 0; overflow: hidden; padding: 26px; border: 1px solid var(--line); background: var(--surface); scroll-margin-top: 110px; }
-.work-cover { display: block; flex-shrink: 0; width: calc(100% + 52px); max-width: none; height: auto; aspect-ratio: 16 / 9; object-fit: cover; margin: -26px -26px 24px; border-bottom: 1px solid var(--line); background: #10181e; }
+.work-card, .engineering-card { display: flex; flex-direction: column; min-width: 0; overflow: hidden; padding: 26px; border: 1px solid var(--line); background: var(--surface); scroll-margin-top: 110px; }
+.work-cover, .engineering-cover { display: block; flex-shrink: 0; width: calc(100% + 52px); max-width: none; height: auto; aspect-ratio: 16 / 9; object-fit: cover; margin: -26px -26px 24px; border-bottom: 1px solid var(--line); background: #10181e; }
 .work-context { color: var(--quiet); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
 .work-card h3 { font-size: 24px; letter-spacing: -.8px; margin-top: 12px; }
 .work-card h3 a { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; }
@@ -160,10 +160,12 @@ kbd { font-family: var(--mono); font-size: 10px; color: var(--muted); font-weigh
 .work-links { display: flex; flex-wrap: wrap; gap: 8px 19px; margin-top: auto; padding-top: 20px; font-size: 10px; color: var(--accent); }
 .work-links a { padding-block: 4px; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 4px; }
 .work-materials { font-size: 10px; color: var(--quiet); line-height: 1.85; margin-top: 12px; }
-.engineering-note { display: grid; grid-template-columns: 1fr auto; gap: 7px 30px; padding: 24px 0 0; }
-.engineering-note h3 { font-size: 13px; font-weight: 500; }
-.engineering-note p { color: var(--muted); font-size: 12px; line-height: 1.85; max-width: 780px; }
-.engineering-note .text-link { grid-column: 2; grid-row: 1 / span 2; align-self: center; white-space: nowrap; }
+.undergraduate-projects { margin-top: 48px; padding-top: 30px; border-top: 1px solid var(--line); scroll-margin-top: 110px; }
+.undergraduate-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px 24px; margin-bottom: 15px; }
+.undergraduate-heading h3 { font-size: 20px; font-weight: 500; letter-spacing: -.6px; }
+.undergraduate-heading .text-link { padding-top: 0; }
+.engineering-card h4 { font-size: 22px; letter-spacing: -.7px; line-height: 1.4; margin-top: 12px; overflow-wrap: anywhere; }
+.engineering-context { font-size: 10px; line-height: 1.85; color: var(--quiet); margin-top: auto; padding-top: 20px; }
 .project-notes { margin-top: 28px; padding: 22px 24px; border: 1px solid var(--line); background: var(--surface); font-size: 13px; line-height: 1.85; color: var(--muted); }
 .artifact-badges { margin-top: 15px; font-size: 9px; line-height: 1.7; }
 .artifact-evidence { display: inline-block; color: var(--accent); padding-block: 3px; }
@@ -295,11 +297,11 @@ kbd { font-family: var(--mono); font-size: 10px; color: var(--muted); font-weigh
   .research-item > p:not(.research-keywords) { font-size: 11px; }
   .research-keywords { font-size: 8px; }
   .work-grid { grid-template-columns: 1fr; }
-  .work-card { padding: 23px 20px; scroll-margin-top: 140px; }
-  .work-cover { width: calc(100% + 40px); margin: -23px -20px 22px; }
+  .work-card, .engineering-card { padding: 23px 20px; scroll-margin-top: 140px; }
+  .work-cover, .engineering-cover { width: calc(100% + 40px); margin: -23px -20px 22px; }
   .work-card h3 { font-size: 23px; }
-  .engineering-note { grid-template-columns: 1fr; gap: 9px; }
-  .engineering-note .text-link { grid-column: auto; grid-row: auto; justify-self: start; padding-top: 4px; }
+  .undergraduate-projects { margin-top: 35px; padding-top: 25px; scroll-margin-top: 140px; }
+  .engineering-card h4 { font-size: 21px; }
   .project-notes { padding: 20px; font-size: 12px; }
   .paper-row { grid-template-columns: 64px minmax(0, 1fr); gap: 17px; padding-block: 25px; }
   .paper-arrow { display: none; }

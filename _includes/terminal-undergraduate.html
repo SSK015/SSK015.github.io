@@ -1,0 +1,9 @@
+{% assign project = include.project %}
+<article class="engineering-card" id="undergraduate-{{ project.id }}" aria-labelledby="undergraduate-title-{{ project.id }}">
+  <img class="engineering-cover" src="{{ project.cover_image | relative_url }}" alt="" width="1672" height="941" loading="lazy" decoding="async">
+  <p class="work-context">{{ project.context | escape }}</p>
+  <h4 id="undergraduate-title-{{ project.id }}">{{ project.name | escape }}</h4>
+  <p class="work-summary">{{ project.summary | escape }}</p>
+  <p class="work-contribution"><span>My part</span>{{ project.contribution | escape }}</p>
+  <p class="engineering-context">{{ project.note | escape }}</p>
+</article>

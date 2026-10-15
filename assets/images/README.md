@@ -44,6 +44,36 @@ assets preserve their resolution and composition; conversion to WebP at quality
 595,032 bytes and are lazy-loaded below the fold. Do not substitute stock
 portraits or claim generated artwork is a real system photo.
 
+## Undergraduate project illustrations
+
+Generated on 2026-10-15 with the built-in image-generation tool, without
+reference images. These two conceptual covers follow the existing collection's
+style; they are not photographs of the owner's hardware, implementation
+screenshots, or technical architecture diagrams. Project descriptions use the
+existing CV as their factual source.
+
+| File | Dimensions | Bytes |
+| --- | --- | --- |
+| `projects/riscv-kernel-cover-v1.webp` | 1672 × 941 | 70,534 |
+| `projects/supercomputing-cover-v1.webp` | 1672 × 941 | 129,294 |
+
+The original generated PNGs are retained outside the repository. Conversion to
+WebP at quality 85 and metadata stripping preserve the original resolution and
+composition. Both covers are lazy-loaded; their combined delivery size is
+199,828 bytes.
+
+### riscv-kernel
+
+```text
+Use case: stylized-concept. Asset type: a raster project-card cover for an existing dark terminal-themed engineering portfolio. Scene/backdrop: deep ink navy #10181e, seamlessly matching the website. Style/medium: sophisticated editorial sci-tech illustration, isometric sculptural forms, matte graphite surfaces, crisp bevels, restrained luminous mint and lavender accents, fine print-like grain, matching a collection of tangible technological sculptures. Composition/framing: landscape 16:9; subject within the central 70 percent, clearly readable at project-card size. Constraints: conceptual cover artwork only, not a measured system architecture, implementation screenshot, or photo of actual equipment. No people, text, letters, numbers, labels, logos, watermarks, badges, or trophies. Subject: a compact exposed computer core, with three neatly separated floating layers of dark circuit-board tiles above a low square processor base; small glowing mint pathways and a few lavender blocks suggest scheduling, memory, and files. An elegant tactile low-level computing sculpture, precise and minimal, no literal instruction-set branding.
+```
+
+### supercomputing
+
+```text
+Use case: stylized-concept. Asset type: a raster project-card cover for an existing dark terminal-themed engineering portfolio. Scene/backdrop: deep ink navy #10181e, seamlessly matching the website. Style/medium: sophisticated editorial sci-tech illustration, isometric sculptural forms, matte graphite surfaces, crisp bevels, restrained luminous mint and lavender accents, fine print-like grain, matching a collection of tangible technological sculptures. Composition/framing: landscape 16:9; subject within the central 70 percent, clearly readable at project-card size. Constraints: conceptual cover artwork only, not a measured system architecture, implementation screenshot, or photo of actual equipment. No people, text, letters, numbers, labels, logos, watermarks, badges, or trophies. Subject: a small cluster of three graphite supercomputer rack sculptures on one clean platform, linked by delicate glowing cyan and warm amber light paths. A flowing translucent computational mesh gently wraps behind the cluster, evoking parallel scientific computation and coordinated work. Refined, compact, and orderly; not a real cluster photograph or a performance chart.
+```
+
 ## Complete generation prompts
 
 ### starfish

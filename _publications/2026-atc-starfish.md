@@ -6,6 +6,13 @@ venue_short: ATC
 display_year: "2026"
 publication_status: Accepted
 authorship_role: first-author
+artifact_badges:
+  - 'Artifacts Available'
+  - 'Artifacts Evaluated - Functional'
+  - 'Results Reproduced'
+artifact_badges_confirmed_by: author
+artifact_badges_confirmed_on: '2026-10-15'
+artifact_badges_info_url: 'https://sysartifacts.github.io/atc2026/badges'
 featured: true
 category: conferences
 permalink: atc26starfish

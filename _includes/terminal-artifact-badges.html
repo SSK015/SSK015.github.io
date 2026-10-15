@@ -1,12 +1,18 @@
 {% assign artifact_paper = include.paper %}
 {% if artifact_paper.artifact_badges.size > 0 %}
+{% assign badge_target = artifact_paper.artifact_badges_source | default: artifact_paper.artifact_badges_info_url %}
 <div class="artifact-badges">
+  {% if artifact_paper.artifact_badges_source %}
   <a class="artifact-evidence" href="{{ artifact_paper.artifact_badges_source }}" target="_blank" rel="noopener noreferrer" aria-label="Artifact evaluation: {{ artifact_paper.artifact_badges.size }} awarded badges; view official results">AE · {{ artifact_paper.artifact_badges.size }} badges ↗</a>
+  {% else %}
+  <span class="artifact-evidence" aria-label="Artifact evaluation: {{ artifact_paper.artifact_badges.size }} awarded badges">AE · {{ artifact_paper.artifact_badges.size }} badges</span>
+  {% endif %}
   <ul aria-label="Awarded artifact evaluation badges">
     {% for badge in artifact_paper.artifact_badges %}
     {% assign badge_asset = site.data.artifact_badges[badge] %}
-    <li>{% if badge_asset %}<a href="{{ artifact_paper.artifact_badges_source }}" target="_blank" rel="noopener noreferrer" title="{{ badge | escape }} · ACM v1.1"><img src="{{ badge_asset.image | relative_url }}" alt="{{ badge | escape }}" width="756" height="752" loading="lazy" decoding="async"></a>{% else %}{{ badge | escape }}{% endif %}</li>
+    <li>{% if badge_asset %}{% if badge_target %}<a href="{{ badge_target }}" target="_blank" rel="noopener noreferrer" aria-label="{{ badge | escape }}; {% if artifact_paper.artifact_badges_source %}view official award results{% else %}read badge definitions{% endif %}" title="{{ badge | escape }} · ACM v1.1">{% endif %}<img src="{{ badge_asset.image | relative_url }}" alt="{{ badge | escape }}" width="756" height="752" loading="lazy" decoding="async">{% if badge_target %}</a>{% endif %}{% else %}{{ badge | escape }}{% endif %}</li>
     {% endfor %}
   </ul>
+  {% if artifact_paper.artifact_badges_info_url and artifact_paper.artifact_badges_source == nil %}<a class="artifact-definitions" href="{{ artifact_paper.artifact_badges_info_url }}" target="_blank" rel="noopener noreferrer">Badge definitions ↗</a>{% endif %}
 </div>
 {% endif %}

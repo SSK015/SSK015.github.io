@@ -167,6 +167,7 @@ kbd { font-family: var(--mono); font-size: 10px; color: var(--muted); font-weigh
 .project-notes { margin-top: 28px; padding: 22px 24px; border: 1px solid var(--line); background: var(--surface); font-size: 13px; line-height: 1.85; color: var(--muted); }
 .artifact-badges { margin-top: 15px; font-size: 9px; line-height: 1.7; }
 .artifact-evidence { display: inline-block; color: var(--accent); padding-block: 3px; }
+.artifact-definitions { display: inline-block; color: var(--quiet); font-size: 9px; margin-top: 6px; }
 .artifact-badges ul { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; list-style: none; padding: 0; margin: 9px 0 0; }
 .artifact-badges li { max-width: 100%; color: var(--muted); padding: 0; }
 .artifact-badges li a { display: block; }

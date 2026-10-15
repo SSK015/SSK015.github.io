@@ -51,13 +51,20 @@ date, and SHA-256 alongside it. Preserve the publisher link and the unchanged
 public PDF, including its attribution/license notices. Mirror provenance is
 documented in `files/papers/README.md`.
 
-`artifact_badges` is an explicit list of awarded badges; it requires an
-`artifact_badges_source` pointing to the official award record. A public repo or
-an artifact appendix alone does not establish an award. The reusable badge strip
-appears in project cards, the research archive, the web CV, and paper details.
+`artifact_badges` is an explicit list of awarded badges. Prefer an
+`artifact_badges_source` pointing to the public official award record. Before that
+record is public, an explicit author confirmation can be recorded with
+`artifact_badges_confirmed_by: author` and `artifact_badges_confirmed_on`. Do not
+publish private evaluation links or notification emails. An optional
+`artifact_badges_info_url` links to clearly labeled badge definitions, not to an
+award record. A public repo, generic badge guide, or artifact appendix alone does
+not establish an award. The reusable strip appears in project cards, the full
+publication list, the web CV, and paper details; it does not create Work entries.
 The strip uses the unmodified official ACM v1.1 images in `assets/images/badges/`,
-mapped by `_data/artifact_badges.yml`, with accessible names and a link to the
-award record. Do not recolor badges or show them for unverified awards.
+mapped by `_data/artifact_badges.yml`, with accessible names. Only link the award
+heading to official results when a public award record exists; author-confirmed
+awards use a plain heading and an optional separate definitions link. Do not
+recolor badges or show them for unverified awards.
 
 ## Homepage artwork
 

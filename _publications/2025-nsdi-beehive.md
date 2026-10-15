@@ -5,6 +5,9 @@ layout: terminal
 venue_short: NSDI
 display_year: "2025"
 authorship_role: collaborator
+artifact_note: "NSDI 2025 did not run an artifact evaluation process, but Beehive's source code is publicly available."
+# Conference context: the NSDI 2026 chairs describe reintroducing AE.
+artifact_note_reference: 'https://www.usenix.org/sites/default/files/nsdi26-message.pdf'
 category: conferences
 paperurl: 'https://www.usenix.org/system/files/nsdi25-li-quanxi.pdf'
 pdf_local: '/files/papers/beehive-nsdi-2025.pdf'

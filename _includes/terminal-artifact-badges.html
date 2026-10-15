@@ -1,4 +1,5 @@
 {% assign artifact_paper = include.paper %}
+{% if artifact_paper.artifact_note %}<p class="artifact-note">{{ artifact_paper.artifact_note | escape }}</p>{% endif %}
 {% if artifact_paper.artifact_badges.size > 0 %}
 {% assign badge_target = artifact_paper.artifact_badges_source | default: artifact_paper.artifact_badges_info_url %}
 <div class="artifact-badges">

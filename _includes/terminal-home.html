@@ -61,7 +61,7 @@
 </section>
 <section class="section-wrap content-section" id="work" aria-labelledby="work-title">
   <span id="publications" aria-hidden="true"></span>
-  <div class="section-heading"><div><p class="eyebrow">02 / WORK</p><h2 id="work-title">Things I've worked on<span class="title-dot">.</span></h2></div><a class="text-link" href="{{ '/publications/' | relative_url }}">Full publication list ↗</a></div>
+  <div class="section-heading work-heading"><div><p class="eyebrow">02 / WORK</p><h2 id="work-title">Things I've worked on<span class="title-dot">.</span></h2></div><a class="button primary publication-cta" href="{{ '/publications/' | relative_url }}">Full publication list ↗</a></div>
   <p class="section-intro">These systems are research collaborations. Each entry describes my part and links to the full team and available materials.</p>
   <div class="work-grid">
     {% for project in site.data.work %}{% include terminal-work.html project=project %}{% endfor %}

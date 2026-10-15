@@ -133,6 +133,7 @@ kbd { font-family: var(--mono); font-size: 10px; color: var(--muted); font-weigh
 .section-heading h2, .personal-section h2, .contact-section h2 { font-size: 30px; letter-spacing: -1.4px; margin-top: 10px; }
 .section-note { font-size: 11px; color: var(--quiet); line-height: 1.8; text-align: right; padding-bottom: 3px; }
 .text-link { font-size: 11px; color: var(--muted); padding-bottom: 5px; }
+.publication-cta { flex-shrink: 0; min-height: 46px; font-size: 13px; }
 .research-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); }
 .research-item { padding: 27px 28px 23px; min-width: 0; }
 .research-item:nth-child(odd) { border-right: 1px solid var(--line); }
@@ -290,6 +291,7 @@ kbd { font-family: var(--mono); font-size: 10px; color: var(--muted); font-weigh
   .section-rule span:last-child { display: none; }
   .content-section { padding-top: 50px; }
   .section-heading { align-items: start; gap: 20px; }
+  .work-heading { flex-direction: column; align-items: flex-start; gap: 18px; }
   .section-heading h2, .personal-section h2, .contact-section h2 { font-size: 25px; }
   .section-note { display: none; }
   .text-link { padding-top: 27px; font-size: 10px; white-space: nowrap; }

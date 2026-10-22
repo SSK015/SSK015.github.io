@@ -5,9 +5,11 @@
 The three files in `badges/` are unmodified ACM v1.1 badge graphics from the
 [SOSP 2025 artifact evaluation site](https://sysartifacts.github.io/sosp2025/results).
 Orthrus's awarded badges link to the public SOSP results. Starfish and Chameleon
-were explicitly confirmed by the author on 2026-10-15; their images link to the
-[ATC 2026 badge definitions](https://sysartifacts.github.io/atc2026/badges), not
-to an official public award record. The private notifications are not mirrored.
+were initially confirmed by the author on 2026-10-15. Their three awarded badges
+are now verified against the public
+[ATC 2026 results](https://sysartifacts.github.io/atc2026/results), checked on
+2026-10-22, and link directly to that official record. The private notifications
+are not mirrored.
 Keep the graphics and their colors unchanged;
 ACM's marks remain ACM's. This is an informational display of the papers' awards,
 not a claim that the graphics are open-licensed.

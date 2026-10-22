@@ -12,6 +12,8 @@ artifact_badges:
   - 'Results Reproduced'
 artifact_badges_confirmed_by: author
 artifact_badges_confirmed_on: '2026-10-15'
+artifact_badges_source: 'https://sysartifacts.github.io/atc2026/results'
+artifact_badges_verified_on: '2026-10-22'
 artifact_badges_info_url: 'https://sysartifacts.github.io/atc2026/badges'
 category: conferences
 permalink: atc26chameleon

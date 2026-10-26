@@ -6,6 +6,15 @@ venue_short: ATC
 display_year: "2026"
 publication_status: Accepted
 authorship_role: first-author
+paperurl: 'https://doi.org/10.1145/3828523.3857010'
+pdf_local: '/files/papers/starfish-atc-2026.pdf'
+pdf_provenance: 'Author-provided final PDF'
+pdf_source_url: 'https://doi.org/10.1145/3828523.3857010'
+pdf_source_name: 'ACM publication record'
+pdf_license: 'CC BY 4.0'
+pdf_pages: 18
+pdf_sha256: 'e57ffcb8470fc82c699d7366ebe12813bf65423b59447c66b2294caeba9a255b'
+pdf_checked: '2026-10-26'
 artifact_badges:
   - 'Artifacts Available'
   - 'Artifacts Evaluated - Functional'

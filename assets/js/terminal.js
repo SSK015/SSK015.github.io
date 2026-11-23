@@ -56,6 +56,11 @@
   document.querySelectorAll('[data-close-command]').forEach(button => button.addEventListener('click', closeCommands));
   search.addEventListener('input', filterCommands);
   search.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closeCommands();
+      return;
+    }
     const visible = visibleItems();
     if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
       event.preventDefault();
@@ -92,6 +97,48 @@
   });
   if (/Mac|iPhone|iPad/.test(navigator.platform)) {
     document.querySelectorAll('[data-shortcut]').forEach(label => { label.textContent = '⌘ K'; });
+  }
+
+  // Track the upper part of the viewport below the sticky header.
+  // A single animation-frame update also handles short sections at page end.
+  if (document.body.dataset.home === 'true') {
+    const navLinks = [...document.querySelectorAll('.main-nav [data-section]')];
+    const sections = navLinks.map(link => document.getElementById(link.dataset.section));
+    const header = document.querySelector('.site-header');
+    let pending = false;
+    function updateActiveSection() {
+      pending = false;
+      const headerHeight = header ? header.getBoundingClientRect().height : 0;
+      const offset = headerHeight + (window.innerHeight - headerHeight) * 0.3;
+      let active = 0;
+      sections.forEach((section, index) => {
+        if (section && section.getBoundingClientRect().top <= offset) active = index;
+      });
+      if (window.scrollY > 0 && window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) {
+        active = sections.length - 1;
+      }
+      navLinks.forEach((link, index) => {
+        const current = index === active;
+        link.classList.toggle('active', current);
+        if (current) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    }
+    function scheduleSectionUpdate() {
+      if (pending) return;
+      pending = true;
+      window.requestAnimationFrame(updateActiveSection);
+    }
+    window.addEventListener('scroll', scheduleSectionUpdate, { passive: true });
+    window.addEventListener('resize', scheduleSectionUpdate);
+    window.addEventListener('hashchange', scheduleSectionUpdate);
+    window.addEventListener('load', scheduleSectionUpdate);
+    if (typeof ResizeObserver === 'function') {
+      const observer = new ResizeObserver(scheduleSectionUpdate);
+      observer.observe(document.querySelector('.site-main'));
+      if (header) observer.observe(header);
+    }
+    updateActiveSection();
   }
 
   const form = document.querySelector('#terminal-form');
@@ -140,7 +187,7 @@
     printResult(command, '🥠 ' + fortunes[next]);
   }
   const routes = {
-    about: '/#about', approach: '/#approach', work: '/#work', personal: '/#personal',
+    about: '/#about', work: '/#work', approach: '/#approach', personal: '/#personal',
     research: '/publications/', papers: '/publications/', publications: '/publications/',
     cv: '/cv/', contact: '/#contact', email: '/#contact'
   };
@@ -155,13 +202,13 @@
     historyIndex = typedCommands.length;
     if (key === 'clear') { history.replaceChildren(); return; }
     if (key === 'help') {
-      printResult(command, 'about · approach · work · personal · contact\nwhoami · ls · cat approach.txt · cat interests.txt\npapers · cv · github · scholar · theme · fortune · clear\nCtrl / ⌘ K opens the command menu.');
+      printResult(command, 'about · work · approach · personal · contact\nwhoami · ls · cat approach.txt · cat interests.txt\npapers · cv · github · scholar · theme · fortune · clear\nCtrl / ⌘ K opens the command menu.');
     } else if (key === 'fortune') {
       printFortune(command);
     } else if (key === 'whoami') {
       printResult(command, 'Yanwen Xia / 夏彦文\nSystems, tools, and curious exploration\nPhD student · UCAS · Beijing, China');
     } else if (key === 'ls') {
-      printResult(command, 'about/  approach/  work/  personal/  contact/\nResearch archive: papers · Background: cv\nEnter a name to open it.');
+      printResult(command, 'about/  work/  approach/  personal/  contact/\nResearch archive: papers · Background: cv\nEnter a name to open it.');
     } else if (key === 'cat approach.txt' || key === 'cat principles.txt') {
       printResult(command, 'Build solid systems. Share usable work.\nMake results checkable. Credit collaborators.\nOpen whenever possible; clear about limits.');
     } else if (key === 'cat interests.txt') {

@@ -5,5 +5,5 @@
   <h4 id="undergraduate-title-{{ project.id }}">{{ project.name | escape }}</h4>
   <p class="work-summary">{{ project.summary | escape }}</p>
   <p class="work-contribution"><span>My part</span>{{ project.contribution | escape }}</p>
-  <p class="engineering-context">{{ project.note | escape }}</p>
+  <div class="work-links"><a href="{{ '/cv/#competitions--projects' | relative_url }}">Details</a></div>
 </article>

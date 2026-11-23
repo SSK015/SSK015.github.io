@@ -14,7 +14,7 @@ redirect_from:
 ## Education
 
 **PhD student in Computer Systems · 2025.09–present**<br>
-Institute of Computing Technology, Chinese Academy of Sciences; University of Chinese Academy of Sciences.
+University of Chinese Academy of Sciences.
 
 **B.E. in Data Science and Big Data Technology · 2021.09–2025.06**<br>
 Huazhong University of Science and Technology.

@@ -159,7 +159,7 @@
     } else if (key === 'fortune') {
       printFortune(command);
     } else if (key === 'whoami') {
-      printResult(command, 'Yanwen Xia / 夏彦文\nSystems, tools, and curious exploration\nPhD student · ICT, CAS & UCAS · Beijing, China');
+      printResult(command, 'Yanwen Xia / 夏彦文\nSystems, tools, and curious exploration\nPhD student · UCAS · Beijing, China');
     } else if (key === 'ls') {
       printResult(command, 'about/  approach/  work/  personal/  contact/\nResearch archive: papers · Background: cv\nEnter a name to open it.');
     } else if (key === 'cat approach.txt' || key === 'cat principles.txt') {

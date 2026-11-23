@@ -49,7 +49,7 @@ button { color: inherit; }
 .js-ready .enhanced-only { display: inline-flex; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .skip-link { position: fixed; left: 20px; top: -100px; z-index: 100; background: var(--accent); color: var(--accent-ink); padding: 12px 18px; }
-.skip-link:focus { top: 15px; }
+.skip-link:focus-visible { top: 15px; }
 .section-wrap, .header-inner, .footer-inner { width: min(1120px, calc(100% - 96px)); margin-inline: auto; }
 .site-header { position: sticky; top: 0; z-index: 20; background: var(--header); backdrop-filter: blur(16px); border-bottom: 1px solid var(--line); }
 .header-inner { display: flex; align-items: center; min-height: 82px; gap: 28px; }

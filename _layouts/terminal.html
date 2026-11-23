@@ -19,9 +19,12 @@
     } catch (_) {}
   </script>
   <link rel="stylesheet" href="{{ '/assets/css/terminal.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+  <link rel="stylesheet" href="{{ '/assets/css/interactions.css' | relative_url }}?v={{ site.time | date: '%s' }}">
   <script src="{{ '/assets/js/terminal.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
+  <script src="{{ '/assets/js/interactions.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
 </head>
 <body data-home="{{ page.home | default: false }}" data-baseurl="{{ site.baseurl }}">
+  <div class="cursor-glow" aria-hidden="true"></div>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="header-inner">
@@ -32,12 +35,14 @@
         <a href="{{ '/#approach' | relative_url }}" data-section="approach"><span>02</span> approach</a>
         <a href="{{ '/#personal' | relative_url }}" data-section="personal"><span>03</span> away</a>
         <a href="{{ '/#contact' | relative_url }}" data-section="contact"><span>04</span> contact</a>
+        <span class="nav-indicator" aria-hidden="true"></span>
       </nav>
       <div class="header-tools">
         <button class="command-toggle enhanced-only" type="button" data-open-command aria-label="Open command menu" aria-haspopup="dialog"><span class="command-symbol" aria-hidden="true">&gt;_</span><kbd data-shortcut>Ctrl K</kbd></button>
         <button class="theme-toggle enhanced-only" type="button" data-theme-toggle aria-label="Switch to light theme" title="Switch theme"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg></button>
       </div>
     </div>
+    <div class="reading-progress" aria-hidden="true"><span data-reading-progress></span></div>
   </header>
   <main id="main" class="site-main" tabindex="-1">
     {% if page.home %}

@@ -99,48 +99,6 @@
     document.querySelectorAll('[data-shortcut]').forEach(label => { label.textContent = '⌘ K'; });
   }
 
-  // Track the upper part of the viewport below the sticky header.
-  // A single animation-frame update also handles short sections at page end.
-  if (document.body.dataset.home === 'true') {
-    const navLinks = [...document.querySelectorAll('.main-nav [data-section]')];
-    const sections = navLinks.map(link => document.getElementById(link.dataset.section));
-    const header = document.querySelector('.site-header');
-    let pending = false;
-    function updateActiveSection() {
-      pending = false;
-      const headerHeight = header ? header.getBoundingClientRect().height : 0;
-      const offset = headerHeight + (window.innerHeight - headerHeight) * 0.3;
-      let active = 0;
-      sections.forEach((section, index) => {
-        if (section && section.getBoundingClientRect().top <= offset) active = index;
-      });
-      if (window.scrollY > 0 && window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) {
-        active = sections.length - 1;
-      }
-      navLinks.forEach((link, index) => {
-        const current = index === active;
-        link.classList.toggle('active', current);
-        if (current) link.setAttribute('aria-current', 'location');
-        else link.removeAttribute('aria-current');
-      });
-    }
-    function scheduleSectionUpdate() {
-      if (pending) return;
-      pending = true;
-      window.requestAnimationFrame(updateActiveSection);
-    }
-    window.addEventListener('scroll', scheduleSectionUpdate, { passive: true });
-    window.addEventListener('resize', scheduleSectionUpdate);
-    window.addEventListener('hashchange', scheduleSectionUpdate);
-    window.addEventListener('load', scheduleSectionUpdate);
-    if (typeof ResizeObserver === 'function') {
-      const observer = new ResizeObserver(scheduleSectionUpdate);
-      observer.observe(document.querySelector('.site-main'));
-      if (header) observer.observe(header);
-    }
-    updateActiveSection();
-  }
-
   const form = document.querySelector('#terminal-form');
   const input = document.querySelector('#terminal-input');
   const history = document.querySelector('#terminal-history');
@@ -191,9 +149,9 @@
     research: '/publications/', papers: '/publications/', publications: '/publications/',
     cv: '/cv/', contact: '/#contact', email: '/#contact'
   };
-  if (form) form.addEventListener('submit', event => {
-    event.preventDefault();
-    const command = input.value.trim();
+  function runCommand(value) {
+    if (!input || !history) return;
+    const command = value.trim();
     const key = command.toLowerCase().replace(/\s+/g, ' ').replace(/\/$/, '');
     if (!key) return;
     input.value = '';
@@ -225,6 +183,13 @@
     } else {
       printResult(command, 'Unknown command. Type help to see what this profile terminal can do.');
     }
+  }
+  if (form) form.addEventListener('submit', event => {
+    event.preventDefault();
+    runCommand(input.value);
+  });
+  document.querySelectorAll('[data-run-command]').forEach(button => {
+    button.addEventListener('click', () => runCommand(button.dataset.runCommand));
   });
   if (input) input.addEventListener('keydown', event => {
     if (event.key !== 'ArrowUp' && event.key !== 'ArrowDown') return;

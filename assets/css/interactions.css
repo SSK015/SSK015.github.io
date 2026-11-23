@@ -22,7 +22,7 @@ body { isolation: isolate; }
 .terminal-window, .work-card, .engineering-card { position: relative; isolation: isolate; }
 .terminal-window { border-radius: 9px; }
 .work-card, .engineering-card { border-radius: 10px; padding: 20px; background: var(--surface); transition: border-color .2s, box-shadow .2s; }
-.project-cover { position: relative; flex-shrink: 0; height: 144px; overflow: hidden; margin: -20px -20px 17px; background: var(--surface); }
+.project-cover { position: relative; flex-shrink: 0; height: 195px; overflow: hidden; margin: -20px -20px 17px; background: var(--surface); }
 .project-cover .work-cover, .project-cover .engineering-cover { display: block; width: 100%; height: 100%; max-width: none; margin: 0; aspect-ratio: auto; border: 0; object-fit: cover; transform: scale(1); transition: transform .65s cubic-bezier(.2,.65,.25,1); }
 .project-cover::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to bottom, transparent 42%, color-mix(in srgb, var(--surface) 16%, transparent) 66%, var(--surface) 100%); }
 .project-cover .work-venue { position: absolute; top: 12px; right: 12px; z-index: 2; padding: 5px 9px; border: 1px solid var(--pill-line); border-radius: 99px; background: var(--pill-bg); color: var(--ink); font: 12px/1.2 var(--mono); letter-spacing: -.1px; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 2px 10px rgba(0,0,0,.08); }
@@ -75,7 +75,7 @@ button:focus-visible, .button:focus-visible { outline: 2px solid var(--accent); 
 }
 @media (max-width: 760px) {
   .hero { padding-block: 34px; }
-  .project-cover { height: 136px; }
+  .project-cover { height: 195px; }
   .work-card h3 { font-size: 23px; }
   .engineering-card h4 { font-size: 21px; }
   .card-footer .work-links { gap: 11px; }
@@ -94,6 +94,38 @@ button:focus-visible, .button:focus-visible { outline: 2px solid var(--accent); 
   .card-footer .artifact-badges ul { gap: 3px; }
   .work-card > .work-contribution, .engineering-card > .work-contribution { font-size: 12px; }
 }
+/* Full project artwork and native, keyboard-accessible image preview. */
+html { scrollbar-gutter: stable; }
+.project-artwork { margin: 26px 0 28px; border: 1px solid rgba(var(--spot),.26); border-radius: 12px; overflow: hidden; background: var(--surface); box-shadow: 0 12px 36px rgba(0,0,0,.1), 0 0 18px rgba(var(--spot),.025); }
+.project-artwork-link { position: relative; display: block; aspect-ratio: 16 / 9; }
+.project-artwork-link > img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.js-ready .project-artwork-link { cursor: zoom-in; }
+.project-artwork:has(.project-artwork-link:focus-visible) { outline: 2px solid var(--accent); outline-offset: 4px; }
+.image-expand { position: absolute; right: 14px; bottom: 14px; display: inline-flex; align-items: center; gap: 6px; padding: 6px 9px; border: 1px solid var(--pill-line); border-radius: 5px; background: var(--pill-bg); color: var(--ink); font: 12px/1.3 var(--mono); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); opacity: .8; transition: opacity .18s; pointer-events: none; }
+.project-artwork-link:hover .image-expand, .project-artwork-link:focus-visible .image-expand { opacity: 1; }
+.project-notes h2 + p { margin-top: 10px; }
+.lightbox-open { overflow: hidden; }
+.image-lightbox { position: fixed; inset: 0; width: 100%; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 56px 24px 24px; border: 0; background: transparent; color: var(--ink); overflow: hidden; cursor: zoom-out; }
+.image-lightbox[open] { display: grid; place-items: center; }
+.image-lightbox::backdrop { background: rgba(4,9,13,.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+:root[data-theme="light"] .image-lightbox::backdrop { background: rgba(238,243,238,.95); }
+.image-lightbox-figure { display: flex; flex-direction: column; align-items: center; gap: 12px; max-width: 100%; max-height: 100%; margin: 0; }
+.image-lightbox[open] .image-lightbox-figure { animation: lightbox-enter .18s ease-out; }
+#image-lightbox-view { display: block; width: auto; height: auto; max-width: 100%; max-height: calc(100dvh - 124px); min-height: 0; object-fit: contain; border: 1px solid rgba(var(--spot),.22); border-radius: 10px; box-shadow: 0 20px 70px rgba(0,0,0,.2); cursor: default; }
+#image-lightbox-caption { max-width: 100%; color: var(--muted); font: 13px/1.5 var(--mono); text-align: center; overflow-wrap: anywhere; cursor: default; }
+.image-lightbox-close { position: absolute; top: 16px; right: 16px; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: var(--surface); color: var(--ink); cursor: pointer; z-index: 1; }
+.image-lightbox-close:hover { border-color: var(--accent); color: var(--accent); }
+@keyframes lightbox-enter { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@media (max-width: 639px) {
+  .project-artwork { border-radius: 9px; margin-block: 22px; }
+  .image-expand { bottom: 9px; right: 9px; padding: 5px 7px; }
+  .image-lightbox { padding-inline: 16px; }
+}
+@media print {
+  .image-lightbox, .image-expand { display: none !important; }
+  .project-artwork { box-shadow: none; break-inside: avoid; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }

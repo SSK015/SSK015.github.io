@@ -124,7 +124,7 @@
     if (shortcut) selectSection(shortcut.dataset.runCommand);
   });
   document.addEventListener('pointermove', event => {
-    if (event.pointerType !== 'mouse' || !finePointer.matches || motion.matches) return;
+    if (event.pointerType !== 'mouse' || !finePointer.matches || motion.matches || root.classList.contains('lightbox-open')) return;
     pointer = { x: event.clientX, y: event.clientY, surface: event.target.closest('.work-card, .engineering-card, .terminal-window') };
     pointerNeeded = true;
     requestFrame();
@@ -190,8 +190,44 @@
     }, 2000);
   });
 
+  // Native dialog provides Escape dismissal and a keyboard focus trap.
+  const imageDialog = document.querySelector('#image-lightbox');
+  const imageView = document.querySelector('#image-lightbox-view');
+  const imageCaption = document.querySelector('#image-lightbox-caption');
+  const imageClose = document.querySelector('[data-close-lightbox]');
+  let imageOpener = null;
+  if (imageDialog && imageView && imageClose) {
+    document.addEventListener('click', event => {
+      const target = event.target instanceof Element ? event.target : null;
+      const link = target ? target.closest('[data-lightbox]') : null;
+      if (!link || event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.altKey || event.shiftKey || typeof imageDialog.showModal !== 'function') return;
+      event.preventDefault();
+      if (imageDialog.open) return;
+      const palette = document.querySelector('#command-dialog');
+      if (palette && palette.open) palette.close();
+      imageOpener = link;
+      const preview = link.querySelector('img');
+      imageView.src = link.href;
+      imageView.alt = preview ? preview.alt : link.dataset.imageTitle || 'Project image';
+      if (imageCaption) imageCaption.textContent = (link.dataset.imageTitle || 'Project') + ' · Full-size image';
+      clearPointer();
+      root.classList.add('lightbox-open');
+      imageDialog.showModal();
+      imageClose.focus({ preventScroll: true });
+    });
+    imageClose.addEventListener('click', () => imageDialog.close());
+    imageDialog.addEventListener('click', event => {
+      if (event.target !== imageView && event.target !== imageCaption && !imageClose.contains(event.target)) imageDialog.close();
+    });
+    imageDialog.addEventListener('close', () => {
+      root.classList.remove('lightbox-open');
+      if (imageOpener && imageOpener.isConnected) imageOpener.focus({ preventScroll: true });
+      imageOpener = null;
+    });
+  }
+
   let revealObserver;
-  const revealItems = [...document.querySelectorAll('.section-heading, .undergraduate-heading, .work-card, .engineering-card, .research-item, .personal-copy, .personal-art, .contact-section > div')];
+  const revealItems = [...document.querySelectorAll('.section-heading, .undergraduate-heading, .work-card, .engineering-card, .research-item, .personal-copy, .personal-art, .project-artwork, .contact-section > div')];
   function setupReveals() {
     if (revealObserver) revealObserver.disconnect();
     if (motion.matches || typeof IntersectionObserver !== 'function') {

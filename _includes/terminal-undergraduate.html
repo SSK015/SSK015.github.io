@@ -1,8 +1,8 @@
 {% assign project = include.project %}
 <article class="engineering-card" id="undergraduate-{{ project.id }}" aria-labelledby="undergraduate-title-{{ project.id }}">
-  <div class="project-cover"><img class="engineering-cover" src="{{ project.cover_image | relative_url }}" alt="" width="1672" height="941" loading="lazy" decoding="async"></div>
-  <h4 id="undergraduate-title-{{ project.id }}">{{ project.card_name | default: project.name | escape }}</h4>
+  <div class="project-cover"><img class="engineering-cover" src="{{ project.cover_image | relative_url }}" alt="" width="1376" height="768" loading="lazy" decoding="async"></div>
+  <h4 id="undergraduate-title-{{ project.id }}"><a href="{{ project.details_url | relative_url }}">{{ project.card_name | default: project.name | escape }}</a></h4>
   <p class="work-summary">{{ project.card_summary | default: project.summary | escape }}</p>
   <p class="work-contribution">{{ project.card_contribution | default: project.contribution | escape }}</p>
-  <div class="card-footer"><div class="work-links"><a href="{{ '/cv/#competitions--projects' | relative_url }}">Details</a></div></div>
+  <div class="card-footer"><div class="work-links"><a href="{{ project.details_url | relative_url }}">Details</a></div></div>
 </article>

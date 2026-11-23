@@ -68,6 +68,7 @@
             {% if page.link %}<a class="button secondary" href="{{ page.link }}" target="_blank" rel="noopener noreferrer">{% if page.link == site.data.terminal.advisor_url %}Related homepage{% else %}Project information{% endif %}</a>{% endif %}
           </div>
           {% if work_entry %}<p class="project-summary">{{ work_entry.summary | escape }}</p>{% endif %}
+          {% if work_entry %}{% include terminal-project-image.html project=work_entry %}{% endif %}
           <div class="prose">{{ content }}</div>
           {% if work_entry %}
           <div class="project-notes">
@@ -78,12 +79,26 @@
           {% endif %}
           {% if page.artifact_note %}<p class="artifact-note">{{ page.artifact_note | escape }}</p>{% endif %}
           {% if page.pdf_local %}<p class="pdf-provenance">{{ page.pdf_provenance | default: 'Unmodified public PDF' | escape }} · <a href="{{ page.pdf_source_url }}" target="_blank" rel="noopener noreferrer">{{ page.pdf_source_name | escape }}</a>{% if page.pdf_license %} · {{ page.pdf_license | escape }}{% endif %}</p>{% endif %}
+        {% elsif page.project_id %}
+          {% assign project_entry = site.data.undergraduate | where: 'id', page.project_id | first %}
+          <p class="eyebrow">{{ project_entry.context | escape }}</p>
+          <h1 class="document-title">{{ page.title | escape }}</h1>
+          <div class="document-actions" aria-label="Project resources">
+            <a class="button primary" href="{{ '/cv/#competitions--projects' | relative_url }}">Background &amp; awards</a>
+          </div>
+          <p class="project-summary">{{ project_entry.summary | escape }}</p>
+          {% include terminal-project-image.html project=project_entry %}
+          <div class="project-notes">
+            <p class="work-contribution"><span>My part</span>{{ page.project_contribution | default: project_entry.contribution | escape }}</p>
+            <h2>Recognition</h2>
+            <p>{{ project_entry.note | escape }}</p>
+          </div>
         {% else %}
           <p class="eyebrow">~/{{ page.terminal_path | default: page.title | downcase | escape }}</p>
           <h1 class="document-title">{{ page.title | escape }}<span class="title-dot">.</span></h1>
           {% if page.subtitle %}<p class="document-subtitle">{{ page.subtitle | escape }}</p>{% endif %}
         {% endif %}
-        {% unless page.collection == 'publications' %}<div class="prose">{{ content }}</div>{% endunless %}
+        {% unless page.collection == 'publications' or page.project_id %}<div class="prose">{{ content }}</div>{% endunless %}
       </div>
     {% endif %}
   </main>
@@ -94,6 +109,13 @@
       <a class="back-top" href="#main">back to top ↑</a>
     </div>
   </footer>
+  <dialog class="image-lightbox" id="image-lightbox" aria-labelledby="image-lightbox-caption">
+    <button class="image-lightbox-close" type="button" data-close-lightbox aria-label="Close full-size image"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
+    <figure class="image-lightbox-figure">
+      <img id="image-lightbox-view" alt="" width="1376" height="768">
+      <figcaption id="image-lightbox-caption">Full-size project image</figcaption>
+    </figure>
+  </dialog>
   <dialog class="command-dialog" id="command-dialog" aria-labelledby="command-title">
     <div class="command-dialog-heading">
       <h2 id="command-title"><span class="prompt-mark">&gt;_</span> Go somewhere</h2>

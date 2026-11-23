@@ -92,6 +92,8 @@
   document.addEventListener('keydown', event => {
     if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
       event.preventDefault();
+      const imageDialog = document.querySelector('#image-lightbox');
+      if (imageDialog && imageDialog.open) return;
       if (dialog && dialog.open) closeCommands(); else openCommands();
     }
   });

@@ -4,7 +4,7 @@
 <article class="work-card" id="work-{{ project.id }}" aria-labelledby="work-title-{{ project.id }}">
   {% if project.cover_image %}
   <div class="project-cover">
-    <img class="work-cover" src="{{ project.cover_image | relative_url }}" alt="" width="1672" height="941" loading="lazy" decoding="async">
+    <img class="work-cover" src="{{ project.cover_image | relative_url }}" alt="" width="1376" height="768" loading="lazy" decoding="async">
     {% if work_paper.venue_short and work_paper.display_year %}<span class="work-venue">{{ work_paper.venue_short | escape }} '{{ work_paper.display_year | slice: -2, 2 }}</span>{% endif %}
   </div>
   {% endif %}

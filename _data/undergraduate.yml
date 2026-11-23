@@ -2,8 +2,9 @@
 - id: riscv-kernel
   name: xv6-based RISC-V kernel
   card_name: RISC-V kernel
+  details_url: /projects/riscv-kernel/
   context: Undergraduate project · 2024
-  cover_image: /assets/images/projects/riscv-kernel-cover-v1.webp
+  cover_image: /assets/images/projects/riscv-kernel-cover-v2.webp
   summary: Extending a teaching kernel with scheduling, memory, executable-loading, and filesystem support.
   card_summary: "xv6 kernel with scheduling, virtual memory, ELF, and filesystems."
   contribution: Built scheduling, virtual memory, ELF and filesystems.
@@ -13,8 +14,9 @@
 - id: supercomputing
   name: Scientific computing & supercomputing
   card_name: HPC optimization
+  details_url: /projects/supercomputing/
   context: Undergraduate team projects · 2022–2025
-  cover_image: /assets/images/projects/supercomputing-cover-v1.webp
+  cover_image: /assets/images/projects/supercomputing-cover-v2.webp
   summary: Application optimization and teamwork with the HUST Heptagon SCC Team.
   card_summary: "Scientific computing with the HUST Heptagon SCC Team."
   contribution: Optimized apps and led a 12-member ASC 2024 team.

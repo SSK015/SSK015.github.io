@@ -166,13 +166,13 @@
     } else if (key === 'fortune') {
       printFortune(command);
     } else if (key === 'whoami') {
-      printResult(command, 'Yanwen Xia / 夏彦文\nSystems, tools, and curious exploration\nPhD student · UCAS · Beijing, China');
+      printResult(command, 'Yanwen Xia / 夏彦文\nFar-memory systems · computer-use agents (CUAs)\nPhD student · UCAS · Beijing, China');
     } else if (key === 'ls') {
       printResult(command, 'about/  work/  approach/  personal/  contact/\nResearch archive: papers · Background: cv\nEnter a name to open it.');
     } else if (key === 'cat approach.txt' || key === 'cat principles.txt') {
       printResult(command, 'Build solid systems. Share usable work.\nMake results checkable. Credit collaborators.\nOpen whenever possible; clear about limits.');
     } else if (key === 'cat interests.txt') {
-      printResult(command, 'Systems & tools · AI agents\nFar memory · Fault tolerance · Runtimes\nRTS games · Hiking · J-pop / Punk · VOCALOID\nCrime films · Action anime');
+      printResult(command, 'Far-memory systems · computer-use agents (CUAs)\nFault tolerance · Runtimes\nRTS games · Hiking · J-pop / Punk · VOCALOID\nCrime films · Action anime');
     } else if (key === 'theme') {
       toggleTheme();
       printResult(command, 'Theme: ' + root.dataset.theme);

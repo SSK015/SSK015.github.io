@@ -19,7 +19,10 @@ University of Chinese Academy of Sciences.
 **B.E. in Data Science and Big Data Technology · 2021.09–2025.06**<br>
 Huazhong University of Science and Technology.
 
-## Research experience
+## Experience
+
+**Research Intern · 2026.11–present**<br>
+Xiaomi.
 
 **Research Assistant & Guest Student · 2024.04–2025.08**<br>
 University of Chinese Academy of Sciences. Developing research projects.<br>

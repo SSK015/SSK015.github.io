@@ -1,16 +1,26 @@
 {% assign project = include.project %}
 {% assign work_paper = site.publications | where: 'url', project.paper_path | first %}
 {% assign details_url = project.details_url | default: project.paper_path | default: project.source_url %}
-<article class="work-card" id="work-{{ project.id }}" aria-labelledby="work-title-{{ project.id }}">
+<article class="work-card{% if project.id == 'starfish' %} featured-card{% endif %}" id="work-{{ project.id }}" aria-labelledby="work-title-{{ project.id }}">
   {% if project.cover_image %}
   <div class="project-cover">
     <img class="work-cover" src="{{ project.cover_image | relative_url }}" alt="" width="1376" height="768" loading="lazy" decoding="async">
-    {% if work_paper.venue_short and work_paper.display_year %}<span class="work-venue">{{ work_paper.venue_short | escape }} '{{ work_paper.display_year | slice: -2, 2 }}</span>{% endif %}
+    {% if work_paper.venue_short and work_paper.display_year %}<span class="work-venue">{% if project.id == 'starfish' %}★ Featured · {% endif %}{{ work_paper.venue_short | escape }} '{{ work_paper.display_year | slice: -2, 2 }}</span>{% endif %}
   </div>
   {% endif %}
+  <div class="work-card-body">
+  {% if project.id == 'starfish' %}<span class="first-author-tag">First Author</span>{% endif %}
   <h3 id="work-title-{{ project.id }}"><a href="{{ details_url | relative_url }}"><span class="work-name">{{ project.name | escape }}</span><span class="work-arrow" aria-hidden="true">↗</span></a></h3>
   <p class="work-summary">{{ project.card_summary | default: project.summary | escape }}</p>
   <p class="work-contribution">{{ project.card_contribution | default: project.contribution | escape }}</p>
+  {% if project.id == 'starfish' %}
+  <div class="project-kpis" aria-label="Starfish evaluation compared with Carbink">
+    <div><strong class="kpi-value">1.9×</strong><span>avg throughput</span></div>
+    <div><strong class="kpi-value">1/8.5</strong><span>network traffic</span></div>
+    <div><strong class="kpi-value">1/7.5</strong><span>mem-node CPU</span></div>
+  </div>
+  <p class="kpi-context">vs Carbink · paper evaluation</p>
+  {% endif %}
   <div class="card-footer">
     <div class="work-links">
       {% if project.source_url %}<a href="{{ project.source_url }}" target="_blank" rel="noopener noreferrer">Source</a>{% endif %}
@@ -19,5 +29,6 @@
       {% if project.paper_path %}<a href="{{ project.paper_path | relative_url }}">Details</a>{% elsif project.details_url %}<a href="{{ project.details_url | relative_url }}">Details</a>{% endif %}
     </div>
     {% include terminal-artifact-badges.html paper=work_paper compact=true icon_only=true %}
+  </div>
   </div>
 </article>

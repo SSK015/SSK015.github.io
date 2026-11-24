@@ -1,6 +1,7 @@
 <section class="hero section-wrap" id="about" aria-labelledby="hero-title">
+  <canvas class="hero-topology" aria-hidden="true"></canvas>
   <div class="hero-copy">
-    <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> BUILD / EXPLORE / SHARE</p>
+    <p class="eyebrow hero-status"><span class="status-dot" aria-hidden="true"></span> UCAS PhD · Systems &amp; Computer-Use Agents</p>
     <h1 id="hero-title">Yanwen<br>Xia<span class="title-dot">.</span></h1>
     <p class="chinese-name" lang="zh">夏彦文 <span aria-hidden="true">/</span> <span lang="en">Beijing, China</span></p>
     <p class="hero-intro">{{ site.data.terminal.intro | escape }}</p>
@@ -21,7 +22,7 @@
       <div class="terminal-titlebar"><div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div><span>yanwen@workbench: ~</span><span class="terminal-title-mark" aria-hidden="true">⌁</span></div>
       <div class="terminal-body">
         <div class="terminal-line"><span class="terminal-prompt">$</span> whoami</div>
-        <div class="terminal-profile"><div><strong>Yanwen Xia <span lang="zh">/ 夏彦文</span></strong><span>Systems &amp; AI agents</span></div></div>
+        <div class="terminal-profile"><div><strong>Yanwen Xia <span lang="zh">/ 夏彦文</span></strong><span>Systems &amp; computer-use agents</span></div></div>
         <div class="terminal-line"><span class="terminal-prompt">$</span> cat approach.txt</div>
         <p class="terminal-output">open code &nbsp;·&nbsp; checkable results</p>
         <div class="terminal-line"><span class="terminal-prompt">$</span> ls work/</div>
@@ -36,8 +37,9 @@
           <button type="submit" class="terminal-submit" aria-label="Run command">↵</button>
         </form>
         <div class="terminal-shortcuts enhanced-only" role="group" aria-label="Quick terminal commands">
-          <button type="button" data-run-command="whoami">whoami</button>
-          <button type="button" data-run-command="work">work</button>
+          <button type="button" data-run-command="bench">bench ★</button>
+          <button type="button" data-run-command="neofetch">neofetch</button>
+          <button type="button" data-run-command="papers">papers</button>
           <button type="button" data-run-command="fortune">fortune</button>
           <button type="button" data-run-command="theme">theme</button>
         </div>
@@ -50,8 +52,12 @@
 <section class="section-wrap content-section" id="work" aria-labelledby="work-title">
   <span id="publications" aria-hidden="true"></span>
   <div class="section-heading work-heading"><div><p class="eyebrow">01 / WORK</p><h2 id="work-title">Selected work<span class="title-dot">.</span></h2></div><a class="button primary publication-cta" href="{{ '/publications/' | relative_url }}">Full publication list ↗</a></div>
-  <div class="work-grid">
-    {% for project in site.data.work %}{% include terminal-work.html project=project %}{% endfor %}
+  <div class="work-grid selected-work-grid">
+    {% assign work_order = 'starfish,moleculegc,orthrus,beehive' | split: ',' %}
+    {% for project_id in work_order %}
+      {% assign project = site.data.work | where: 'id', project_id | first %}
+      {% include terminal-work.html project=project %}
+    {% endfor %}
   </div>
   <section class="undergraduate-projects" id="undergraduate" aria-labelledby="undergraduate-title">
     <div class="undergraduate-heading"><h3 id="undergraduate-title">Undergrad work</h3><a class="text-link" href="{{ '/cv/' | relative_url }}">Engineering background ↗</a></div>

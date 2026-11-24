@@ -124,7 +124,19 @@
     line.append(prefix, document.createTextNode(' ' + command));
     const result = document.createElement('p');
     result.className = 'result-output';
-    result.textContent = output;
+    if (Array.isArray(output)) {
+      output.forEach(parts => {
+        const line = document.createElement('span');
+        line.className = 'term-line';
+        parts.forEach(([value, tone]) => {
+          const segment = document.createElement('span');
+          if (['mint', 'amber', 'cyan'].includes(tone)) segment.className = 'term-' + tone;
+          segment.textContent = value;
+          line.append(segment);
+        });
+        result.append(line);
+      });
+    } else result.textContent = output;
     row.append(line, result);
     history.append(row);
     while (history.children.length > 6) history.firstElementChild.remove();
@@ -162,17 +174,51 @@
     historyIndex = typedCommands.length;
     if (key === 'clear') { history.replaceChildren(); return; }
     if (key === 'help') {
-      printResult(command, 'about · work · approach · personal · contact\nwhoami · ls · cat approach.txt · cat interests.txt\npapers · cv · github · scholar · theme · fortune · clear\nCtrl / ⌘ K opens the command menu.');
+      printResult(command, 'bench · neofetch · papers\nabout · work · approach · personal · contact\nwhoami · ls · cat approach.txt · cat interests.txt\npapers · cv · github · scholar · theme · fortune · clear\nCtrl / ⌘ K opens the command menu.');
+    } else if (key === 'bench') {
+      printResult(command, [
+        [['STARFISH / vs Carbink', 'amber']],
+        [['Avg throughput', 'cyan']],
+        [['Carbink   █████████  1.0×']],
+        [['Starfish  █████████████████  1.9×', 'mint']],
+        [['Network traffic', 'cyan']],
+        [['Carbink   █████████████████  1.0']],
+        [['Starfish  ██  1/8.5', 'mint']],
+        [['Memory-node CPU', 'cyan']],
+        [['Carbink   █████████████████  1.0']],
+        [['Starfish  ██  1/7.5', 'mint']],
+        [["ATC '26 · 3× ACM AE badges", 'amber']],
+        [['Paper evaluation; not a live benchmark.']]
+      ]);
+    } else if (key === 'neofetch') {
+      printResult(command, [
+        [['   [mem]──◇──[mem]', 'mint']],
+        [['          │', 'cyan']],
+        [['       [runtime]', 'amber']],
+        [['Yanwen Xia · UCAS PhD', 'mint']],
+        [['Focus  far memory / systems / CUAs']],
+        [['Stack  C++ · LLVM · OpenJDK · RDMA']],
+        [['Venues ATC · EuroSys · SOSP · NSDI', 'cyan']]
+      ]);
+    } else if (key === 'papers') {
+      printResult(command, [
+        [["[ATC '26]     ", 'amber'], ['Starfish']],
+        [["[EuroSys '27] ", 'mint'], ['MoleculeGC']],
+        [["[SOSP '25]    ", 'cyan'], ['Orthrus']],
+        [["[NSDI '25]    ", 'mint'], ['Beehive']],
+        [["[ATC '26]     ", 'amber'], ['Chameleon']],
+        [['Full list: type publications']]
+      ]);
     } else if (key === 'fortune') {
       printFortune(command);
     } else if (key === 'whoami') {
-      printResult(command, 'Yanwen Xia / 夏彦文\nSystems, tools, and curious exploration\nPhD student · UCAS · Beijing, China');
+      printResult(command, 'Yanwen Xia / 夏彦文\nFar-memory systems · computer-use agents (CUAs)\nPhD student · UCAS · Beijing, China');
     } else if (key === 'ls') {
       printResult(command, 'about/  work/  approach/  personal/  contact/\nResearch archive: papers · Background: cv\nEnter a name to open it.');
     } else if (key === 'cat approach.txt' || key === 'cat principles.txt') {
       printResult(command, 'Build solid systems. Share usable work.\nMake results checkable. Credit collaborators.\nOpen whenever possible; clear about limits.');
     } else if (key === 'cat interests.txt') {
-      printResult(command, 'Systems & tools · AI agents\nFar memory · Fault tolerance · Runtimes\nRTS games · Hiking · J-pop / Punk · VOCALOID\nCrime films · Action anime');
+      printResult(command, 'Far-memory systems · computer-use agents (CUAs)\nFault tolerance · Runtimes\nRTS games · Hiking · J-pop / Punk · VOCALOID\nCrime films · Action anime');
     } else if (key === 'theme') {
       toggleTheme();
       printResult(command, 'Theme: ' + root.dataset.theme);
